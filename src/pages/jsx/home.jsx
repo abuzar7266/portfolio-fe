@@ -125,7 +125,7 @@ class Home extends Component{
             CardData.map((data,idx)=>
             {
                 return(
-                <div className="col-lg-3 col-md-6 col-6" style={{padding:"10px", alignText:"center"}}>
+                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" style={{padding:"10px", alignText:"center"}}>
                 <Card CardData={data}/>
                 </div>);
             })
