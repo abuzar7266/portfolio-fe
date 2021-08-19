@@ -1,0 +1,10 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+.Main-Outer{
+    background-image: url('../../images/nasa-Q1p7bh3SHj8-unsplash.jpg');
+}  
+.Main-Inner{
+        color:white;
+        background-color: transparent;
+        margin: "0px 0px 0px 0px";
+}
