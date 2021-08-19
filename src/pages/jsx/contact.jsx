@@ -6,7 +6,6 @@ import HeaderLogo from '../../images/logoHeader.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 const Contact = ()=>{
     return (<>
-    {/*<div className="container-fluid bg-primary" style={{backgroundImage: `url("${background}")`,margin:"0px 0px 50px 0px",padding:"100px 0px 100px 0px" ,zIndex:"2"}}>*/}
     <div className="container-fluid" id="contactForm" style={{backgroundColor:"transparent"}}>
     <div className="row offset-1">
       <h1> Contact</h1>
@@ -23,7 +22,7 @@ const Contact = ()=>{
       <div className="col-auto align-self-center d-none d-sm-block" style={{height:"400px",width: "400px"}}>
       <img class="img-thumbnail align-self-center" style={{height:"345px",width: "325px"}} src={Pic} alt="Uthappizza"/>
       </div>
-      <div className="col-md-4 order-md-0 col-12 order-2 align-self-center">
+      <div className="col-md-4 order-md-0 col-12 align-self-center">
           <h1>Contact Us</h1><p>If you want to contact abuzar then write message and abuzar will contact you soon via email,Just write down your details and inform me about your contact and tell me the reason so i could adjust my time to make contact with you</p>
       </div>
       <div className="d-md-block col-12 order-1 align-self-center">

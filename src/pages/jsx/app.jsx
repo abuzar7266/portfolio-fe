@@ -10,6 +10,7 @@ import { Redirect } from 'react-router-dom';
 import Footer from '../../components/jsx/Footer';
 const App = ()=>{
     return (<>
+    
     <NavBar/>
     <Switch>
     <Route exact path="/" component={Home}/>

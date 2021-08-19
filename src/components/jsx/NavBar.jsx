@@ -1,67 +1,36 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../../../node_modules/bootstrap/dist/js/bootstrap.min.js";
-import '../css/styles.css';
-
-import logo from '../../images/portifolio.png';
+import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
+import { useState, useEffect } from 'react';
 
 const NavBar = () => {
+  var Logo = require('../../images/portifolio.png');
     return (<>
-  <nav className="navbar navbar-icon-top navbar-expand-lg" style={{backgroundColor:"#1C2331",paddingLeft:"30px"}}>
-  <a className="navbar-brand" href="#" style={{color:"grey"}}>Portifolio</a>
-  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span className="navbar-toggler-icon" style={{color:"black"}}></span>
-  </button>
-
-  <div className="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul className="navbar-nav mr-auto">
-      <li className="nav-item active">
-        <a className="nav-link" href="/" style={{color:"grey"}}>
-          <i className="fa fa-home" style={{color:"grey"}}></i>
-          Home
-          <span className="sr-only">(current)</span>
-          </a>
-      </li>
-      <li className="nav-item" >
-        <a className="nav-link" href="/about" style={{color:"grey"}}>
-          <i className="fa fa-info" style={{color:"grey"}}>
-            <span className="badge badge-danger">11</span>
-          </i>
-          About
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="/contact" style={{color:"grey"}}>
-          <i className="fa fa-phone" style={{color:"grey"}}>
-            <span className="badge badge-danger">11</span>
-          </i>
-          Contact
-        </a>
-      </li>
-    </ul>
-    <ul className="navbar-nav " style={{paddingRight:"20px"}}>
-      <li className="nav-item">
-        <a className="nav-link" href="#" style={{color:"grey"}}>
-          <i className="fa fa-bell" style={{color:"grey"}}>
-            <span className="badge badge-info">11</span>
-          </i>
-          Notifications
-        </a>
-      </li>
-      <li className="nav-item">
-        <a className="nav-link" href="#" style={{color:"grey"}}>
-          <i className="fa fa-globe" style={{color:"grey"}}>
-            <span className="badge badge-success">11</span>
-          </i>
-          Feed
-        </a>
-      </li>
-    </ul>
+    <div>
+    <nav class="navbar navStyle navbar-dark navbar-expand-sm fixed-top" style={{color:"white",backgroundColor:"#1C2331"}}>
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a href="/"><img src={Logo.default} style={{paddingRight:"40px",height:"40px",width:"80px"}}/></a>
+            <div class="collapse navbar-collapse" id="Navbar" >
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active"><a class="nav-link" href="/"> <span class="fa fa-home fa-lg"> </span> Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about"> <span class="fa fa-info fa-lg"> </span> About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</a></li>
+                </ul>
+                <span class="navbar-text">
+                    <a id="loginClick" class="btn" >
+                    <span class="fa fa-sign-in"></span> Login</a>
+                </span>
+            </div>
+        </div>
+    </nav>
     
     </div>
-  </nav>
 </>
     )
 };
+
 export default NavBar;

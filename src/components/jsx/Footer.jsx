@@ -28,7 +28,7 @@ class Footer extends Component
              >
       
       <div className="me-5">
-        <span>Get connected with us on social networks:</span>
+        <span>Connect with us on Social Media:</span>
       </div>
       
       <div>
@@ -61,15 +61,13 @@ class Footer extends Component
           
           <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
             
-            <h6 className="text-uppercase fw-bold">Company name</h6>
+            <h6 className="text-uppercase fw-bold">Portifolio</h6>
             <hr
                 className="mb-4 mt-0 d-inline-block mx-auto"
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-              Here you can use rows and columns to organize your footer
-              content. Lorem ipsum dolor sit amet, consectetur adipisicing
-              elit.
+            I've always wondered about the world and everything that has been created and I've always been curious about the different technologies in the world<a href="/about" style={{textDecoration:"none",color:"grey"}}>...See More</a>
             </p>
           </div>
         
@@ -81,16 +79,16 @@ class Footer extends Component
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-              <a href="#!" className="text-white">MDBootstrap</a>
+              <a href="#!" className="text-white">Prediction Models</a>
             </p>
             <p>
-              <a href="#!" className="text-white">MDWordPress</a>
+              <a href="#!" className="text-white">Data Visualizations</a>
             </p>
             <p>
-              <a href="#!" className="text-white">BrandFlow</a>
+              <a href="#!" className="text-white">Web-Development</a>
             </p>
             <p>
-              <a href="#!" className="text-white">Bootstrap Angular</a>
+              <a href="#!" className="text-white">Algorithms</a>
             </p>
           </div>
           
@@ -102,13 +100,13 @@ class Footer extends Component
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-              <a href="#!" className="text-white">Your Account</a>
+              <a href="#!" className="text-white">About</a>
             </p>
             <p>
-              <a href="#!" className="text-white">Become an Affiliate</a>
+              <a href="#!" className="text-white">Make a Donation</a>
             </p>
             <p>
-              <a href="#!" className="text-white">Shipping Rates</a>
+              <a href="#!" className="text-white">Place an Order</a>
             </p>
             <p>
               <a href="#!" className="text-white">Help</a>
@@ -122,10 +120,10 @@ class Footer extends Component
                 className="mb-4 mt-0 d-inline-block mx-auto"
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
-            <p><i className="fas fa-home mr-3"></i> New York, NY 10012, US</p>
-            <p><i className="fas fa-envelope mr-3"></i> info@example.com</p>
-            <p><i className="fas fa-phone mr-3"></i> + 01 234 567 88</p>
-            <p><i className="fas fa-print mr-3"></i> + 01 234 567 89</p>
+            <p><i className="fas fa-home mr-3"></i>Islamabad, F11/1 street 8, Pakistan</p>
+            <p><i className="fas fa-envelope mr-3"></i> abuzar@gmail.com</p>
+            <p><i className="fas fa-phone mr-3"></i> + 92 316 7815 023</p>
+            <p><i className="fas fa-print mr-3"></i> + 92 305 6243 600</p>
           </div>
           
         </div>
