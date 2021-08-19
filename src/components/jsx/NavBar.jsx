@@ -16,9 +16,9 @@ const NavBar = () => {
             <a href="/"><img src={Logo.default} style={{paddingRight:"40px",height:"40px",width:"80px"}}/></a>
             <div class="collapse navbar-collapse" id="Navbar" >
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a class="nav-link" href="/"> <span class="fa fa-home fa-lg"> </span> Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about"> <span class="fa fa-info fa-lg"> </span> About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</a></li>
+                    <li class="nav-item active"><NavLink class="nav-link" to="./"> <span class="fa fa-home fa-lg"> </span> Home</NavLink></li>
+                    <li class="nav-item"><NavLink class="nav-link" to="./about"> <span class="fa fa-info fa-lg"> </span> About</NavLink></li>
+                    <li class="nav-item"><NavLink class="nav-link" to="./contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</NavLink></li>
                 </ul>
                 <span class="navbar-text">
                     <a id="loginClick" class="btn" >
