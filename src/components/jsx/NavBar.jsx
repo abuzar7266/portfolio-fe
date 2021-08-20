@@ -7,7 +7,7 @@ import { Button,Modal,Navbar,Container,Nav } from 'react-bootstrap'
 class NavBar extends React.Component
 {
   constructor(props)
-    {g
+    {
         super(props);
         this.state = {
             showHide : false
