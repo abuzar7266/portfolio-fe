@@ -3,13 +3,11 @@ import { NavLink } from 'react-router-dom';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { useState, useEffect } from 'react';
-import { Button,Modal } from 'react-bootstrap';
-import '../css/styles.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Button,Modal,Navbar,Container,Nav } from 'react-bootstrap'
 class NavBar extends React.Component
 {
   constructor(props)
-    {
+    {g
         super(props);
         this.state = {
             showHide : false
@@ -60,29 +58,31 @@ class NavBar extends React.Component
                     </Modal.Footer>
                 </Modal>
           </div>
-    <nav class="navbar navStyle navbar-dark navbar-expand-sm fixed-top" style={{color:"white",backgroundColor:"#1C2331"}}>
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a href="/"><img src={Logo.default} style={{paddingRight:"40px",height:"40px",width:"80px"}}/></a>
-            <div class="collapse navbar-collapse" id="Navbar" >
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><NavLink class="nav-link" to="./"> <span class="fa fa-home fa-lg"> </span> Home</NavLink></li>
-                    <li class="nav-item"><NavLink class="nav-link" to="./about"> <span class="fa fa-info fa-lg"> </span> About</NavLink></li>
-                    <li class="nav-item"><NavLink class="nav-link" to="./contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</NavLink></li>
-                </ul>
-                <div className="navbar-text mr-auto">
+ 
+       
+    </div>
+
+<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+  <Container>
+  <a href="/"><img src={Logo.default} style={{paddingRight:"40px",height:"40px",width:"80px"}}/></a>
+            
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="me-auto">
+      <NavLink class="nav-link" to="./"> <span class="fa fa-home fa-lg"> </span> Home</NavLink>
+     <NavLink class="nav-link" to="./about"> <span class="fa fa-info fa-lg"> </span> About</NavLink>
+     <NavLink class="nav-link" to="./contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</NavLink>
+    
+    </Nav>
+    <div className="navbar-text" style={{marginRight:"100px",alignText:"center"}}>
                 <span class="navbar-text">
                     <a id="loginClick" class="btn" onClick={() => this.handleModalShowHide()}>
                     <span class="fa fa-sign-in"></span> Login </a>
                 </span>
-                </div>
-            </div>
-        </div>
-    </nav>
-    
     </div>
+  </Navbar.Collapse>
+  </Container>
+</Navbar>
 </>
     )
   }
