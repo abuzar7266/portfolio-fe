@@ -10,6 +10,8 @@
 }
 
 body {
+    min-zoom: 0.75;
+    max-zoom: 1.5;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
     background: rgb(238, 174, 202);

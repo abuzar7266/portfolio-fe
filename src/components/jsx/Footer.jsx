@@ -19,6 +19,7 @@ class Footer extends Component
 
 
 <footer
+
           className="text-center text-lg-start text-white"
           style={{backgroundColor: "#1c2331"}}
           >

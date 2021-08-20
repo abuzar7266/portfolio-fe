@@ -5,7 +5,7 @@ import Card from '../../components/jsx/Cards';
 import '../css/home.css';
 import {CardData} from '../../components/jsx/content';
 class Home extends Component{
-    render(){ 
+render(){ 
         
     return (<>
     <div className="Main-Outer">

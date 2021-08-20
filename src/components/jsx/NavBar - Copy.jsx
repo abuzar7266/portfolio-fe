@@ -3,9 +3,7 @@ import { NavLink } from 'react-router-dom';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { useState, useEffect } from 'react';
-import { Button,Modal } from 'react-bootstrap';
-import '../css/styles.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Button,Modal } from 'react-bootstrap'
 class NavBar extends React.Component
 {
   constructor(props)
