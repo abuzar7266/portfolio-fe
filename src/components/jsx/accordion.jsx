@@ -1,30 +1,36 @@
-import { useState } from 'react';
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { Accordion, Card } from "react-bootstrap";
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import '../css/styles.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-const Accordion = ({ ID,title, content }) => {
-  const [isActive, setIsActive] = useState(false);
 
-  return (
-    <div>
-    <div class="card">
-    <div class="card-header" role="tab" id={ID} onClick={() => setIsActive(!isActive)} style={{cursor:"grab",borderRadius:"10px",color:"white",backgroundColor:"#1C2331"}}>
-    <div><i className="fa fa-sliders" style={{color:"white"}}></i> {title}</div>
-    </div>
-    <div className="accordion-transition">
-    {isActive && (<div class="card-body">
-            <p class="d-none d-sm-block">
-            <div>{content}</div>
-                      </p>
-    </div>)}
-    </div>
-    </div>
-    </div>
-  );
-};
+export class Accordion_Component extends Component {
 
+    constructor(props)
+    {
+      super(props);
+      this.state = {
+          ID:props.ID,
+          Header:props.title,
+          Text:props.content,
+      }
+    }
+    render() {
+        return (
+            <>
+                <div>
+                    <Accordion style={{borderRadius:"10px",border:"1px solid #1C2331",margin:"0px 0px 0px 0px"}}>
+                        <Card>
+                            <Accordion.Toggle style={{cursor:"pointer",borderRadius:"10px",backgroundColor:"#1C2331",color:"white"}} as={Card.Header} eventKey={this.state.ID}>
+                                {this.state.Header}
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey={this.state.ID}>
+                                <Card.Body>{this.state.Text}</Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                    </Accordion>
+                </div>
+            </>
+        );
+    }
+}
 
-
-export default Accordion;
+export default Accordion_Component;

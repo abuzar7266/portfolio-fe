@@ -4,6 +4,8 @@ import React, { Component } from 'react'
 import Card from '../../components/jsx/Cards';
 import '../css/home.css';
 import {CardData} from '../../components/jsx/content';
+import NewCar from '../../components/jsx/NewCar';
+import Accordion from '../../components/jsx/NewCar';
 class Home extends Component{
 render(){ 
         
@@ -20,17 +22,21 @@ render(){
         </div>
     </div>
     </div>
-    <div className="container-fluid" style={{backgroundColor:"white"}}>
+    <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row">
+            <br />
             <br />
     </div>
 
-        <div className="row offset-md-1" style={{alignText:"center"}}>
+        <div className="row " style={{alignText:"center"}}>
+        <div className="col-md-7 col-lg-5 col-12 align-self-center" style={{marginLeft:"40px",marginRight:"72px",marginBottom:"10px",overflow:"hidden"}}>
+        <Accordion/>
+        </div>
         {
             CardData.map((data,idx)=>
             {
                 return(
-                <div className="col-lg-3 col-md-6 col-sm-6 col-xs-12" style={{padding:"10px", alignText:"center"}}>
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{overflow:"auto"}}>
                 <Card CardData={data}/>
                 </div>);
             })

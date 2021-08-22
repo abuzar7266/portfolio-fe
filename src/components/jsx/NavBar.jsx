@@ -62,21 +62,21 @@ class NavBar extends React.Component
        
     </div>
 
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+<Navbar collapseOnSelect expand="lg" style={{backgroundColor:"#1C2331",color:"white"}}>
   <Container>
   <a href="/"><img src={Logo.default} style={{paddingRight:"40px",height:"40px",width:"80px"}}/></a>
             
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <NavLink class="nav-link" to="./"> <span class="fa fa-home fa-lg"> </span> Home</NavLink>
-     <NavLink class="nav-link" to="./about"> <span class="fa fa-info fa-lg"> </span> About</NavLink>
-     <NavLink class="nav-link" to="./contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</NavLink>
+        <NavLink class="nav-link" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} to="./"> <span class="fa fa-home fa-lg"> </span> Home</NavLink>
+        <NavLink class="nav-link" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} to="./about"> <span class="fa fa-info fa-lg"> </span> About</NavLink>
+        <NavLink class="nav-link" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} to="./contact"> <span class="fa fa-address-card fa-lg"> </span> Contact</NavLink>
     
     </Nav>
-    <div className="navbar-text" style={{marginRight:"100px",alignText:"center"}}>
+    <div className="navbar-text" style={{marginRight:"100px",alignText:"center",color:"white"}}>
                 <span class="navbar-text">
-                    <a id="loginClick" class="btn" onClick={() => this.handleModalShowHide()}>
+                    <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
                     <span class="fa fa-sign-in"></span> Login </a>
                 </span>
     </div>
