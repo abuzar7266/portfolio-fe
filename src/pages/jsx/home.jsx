@@ -29,9 +29,6 @@ render(){
     </div>
 
         <div className="row " style={{alignText:"center"}}>
-        <div className="col-md-7 col-lg-5 col-12 align-self-center" style={{marginLeft:"40px",marginRight:"72px",marginBottom:"10px",overflow:"hidden"}}>
-        <Accordion/>
-        </div>
         {
             CardData.map((data,idx)=>
             {
