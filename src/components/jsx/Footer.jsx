@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import logo from '../../images/call2.png';
-import logo2 from '../../images/locate-3.png';
-import logo3 from '../../images/mail.png';
-import logo4 from '../../images/portifolio.png';
-import logo5 from '../../images/fblogo.png';
-import logo6 from '../../images/linkedin.png';
-import logo7 from '../../images/instagram.png';
-import logo8 from '../../images/googleplus.png';
 import '../css/styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 class Footer extends Component 
 {
-    
+    constructor(){
+      super();
+      this.state={
+        seeMoreLink:"",
+        productBlockLinks:[],
+        usefulLinks:[],
+        ContactDetails:{
+          Address:"",
+          Email:"",
+          MobileNo:"",
+          FaxNo:"",
+          SocialLinks:{}
+        }
+      }
+    }
     render() { 
         return ( <>
 

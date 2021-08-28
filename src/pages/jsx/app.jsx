@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import NavBar from '../../components/jsx/NavBar';
 import Home from './home';
 import About from './about';
 import Contact from './contact';
+import Footer from '../../components/jsx/Footer';
 import { Route, Switch } from 'react-router';
 import { Redirect } from 'react-router-dom';
-import Footer from '../../components/jsx/Footer';
-const App = ()=>{
-    return (<>
-    
+import { Provider } from 'react-redux';
+import { ConfigureStore } from '../../redux/configureStore';
+const store = ConfigureStore();
+class App extends Component{
+    render()
+    {
+    return (<>  
+    <Provider store={store}>
     <NavBar/>
     <Switch>
     <Route exact path="/" component={Home}/>
@@ -19,7 +24,8 @@ const App = ()=>{
     <Redirect to="/"/>
     </Switch>
     <Footer/>
-
+    </Provider>
     </>);
+    }
 };
 export default App;

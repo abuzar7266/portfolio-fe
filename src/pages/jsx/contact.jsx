@@ -1,105 +1,26 @@
 import React from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Pic from "../../images/myPic.jpg";
-import background from '../../images/backgroundHeader.jpg';
-import HeaderLogo from '../../images/logoHeader.png';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-const Contact = ()=>{
+import { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+
+const mapStateToProps = state => {
+    return {
+      Data:state.ContactData
+    }
+}
+
+
+class Contact extends Component
+{
+  render()
+  {
     return (<>
-    <div className="container-fluid" id="contactForm" style={{backgroundColor:"transparent"}}>
-    <div className="row d-none d-sm-block">
-      <br />
-      <hr/>
-    </div>
-    <div className="row d-none d-sm-block">
-      <br />
-      <br />
-    </div>
-    <div className="row">
-      <div className="col-auto align-self-center d-none d-sm-block" style={{height:"400px",width: "400px"}}>
-      <img class="img-thumbnail align-self-center" style={{height:"345px",width: "325px"}} src={Pic} alt="Uthappizza" fluid/>
-      </div>
-      <div className="col-md-3 order-md-0 col-12 align-self-center">
-          <h1>Contact Us</h1><p>If you want to contact abuzar then write message and abuzar will contact you soon via email,Just write down your details and inform me about your contact and tell me the reason so i could adjust my time to make contact with you</p>
-      </div>
-      <div className="d-md-block col-12 order-1 d-none d-sm-block align-self-center">
-          <br/>
-      </div>
-    <div className="col-md-5 col-12 ml-auto">
-    <div className="card ml-auto" style={{width: "30rem"}}>
-            <div className="card-header" style={{backgroundColor:"#1C2331",color:"white",textAlign:"center"}}>
-                <h4>Write your message</h4>
-            </div>
-                <div className="card-body" style={{backgroundColor:"white",marginLeft:"0px"}}>
-                <form action="/contact">
-                <div className="form-group row">
-      <div className="col-6">
-    <input type="text" style={{borderRadius:"25px"}} className="form-control" placeholder="First Name" id="email" />
-    </div>
-    <div className="col-6">
-    <input type="text" style={{borderRadius:"25px"}} className="form-control" placeholder="Last Name" id="email" />
-    </div>
-  </div>
-
-  <div className="form-group row">
-      <br />
-  </div>
-  <div className="form-group row">
-      <div className="col-6">
-    <input type="email" style={{borderRadius:"25px"}} className="form-control" placeholder="Email Address" id="email" />
-    </div>
-    <div className="col-6">
-    <input type="text" style={{borderRadius:"25px"}} className="form-control" placeholder="Mobile Number" id="email" />
-    </div>
-  </div>
-  <div className="form-group row">
-      <br />
-  </div>
-
-  <div className="form-group row">
-    <div className="col-md-6 col-12">
-    <input type="file" class="form-control" id="image" name="image"/>
-    </div>
-    <div className="col-md-6 col-12 align-self-center">
-      <h6>Send attachment(Optional)</h6>
-    </div>
-  </div>
-
-  <div className="form-group row">
-      <br />
-  </div>
-  <div className="form-group row">
-      <div className="col-12">
-    <input type="text" className="form-control" style={{borderRadius:"25px",padding:"20px"}} placeholder="Write down your message" id="email" />
-    </div>
-  </div>
-  <div className="form-group row">
-      <br />
-  </div>
-  <div className="form-group row">
-      <div className="col-5">
-      
-    </div>
-    <div className="col-4">
-      <button type="submit" style={{borderRadius:"25px",width:"110px",height:"40px",padding:"5px"}} className="btn btn-primary">Submit</button>
-    </div>
-  </div>
-</form>
-</div>
-                
-            </div>
-    </div>
-    </div>
-    <div className="row">
-      <br />
-      <br />
-    </div>
-    <div className="row">
-      <br />
-      <hr/>
-    </div>
-    </div>
-    
+        <h1>Soon will be available</h1>
     </>);
+  }
 };
-export default Contact;
+
+export default withRouter(connect(mapStateToProps)(Contact));
