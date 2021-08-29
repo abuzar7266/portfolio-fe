@@ -5,25 +5,40 @@ import Card from '../../components/jsx/Cards';
 import '../css/home.css';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { addProject } from "../../redux/ActionCreators";
+import { fetchProjects } from "../../redux/ActionCreators";
+
 
 
 const mapStateToProps = state => {
     return {
-      Data:state.HomeData
+      projects:state.projects
     }
 }
 
+const mapDispatchToProps = dispatch => ({
+  
+    addProject: (userid,Title, Image, Text , Type , Duration) => dispatch(addProject(userid,Title, Image, Text , Type , Duration))
+    ,fetchProjects: () => { dispatch(fetchProjects())}
+});
+
 class Home extends Component
 {
-render(){ 
+    componentDidMount() 
+    {
+        this.props.fetchProjects();
+    }
+    render()
+    { 
+    const Data = this.props.projects.projects;
+    console.log(Data);
     return (<>
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>
         <div className="container" >
-            <div className="row row-header">
-                <div className="col-12 align-self-center" style={{ textAlign:"center" }}>
-                    <h1>Hello, World.</h1>
-                    <p>I am <strong>{this.props.Data.AboutData.name}</strong><br/> {this.props.Data.AboutData.pageText} </p>
+            <div className="row">
+                <div className="col-12 align-self-center">
+                <p><h1>Hello, World.</h1>I am <strong> Abuzar </strong><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vehicula elementum nisl vel sollicitudin. Quisque pellentesque odio ac eros efficitur, vitae luctus arcu vulputate. Mauris eleifend finibus odio eu porttitor. In scelerisque congue mattis. Vestibulum varius magna quis felis commodo molestie. Integer tincidunt pharetra efficitur. Curabitur quis orci vehicula, gravida massa sed, porttitor nisi. Aliquam venenatis diam lorem, eget porta ligula ultricies sit amet. Nunc non eros lectus. Phasellus sit amet felis a nulla sollicitudin lacinia non ac lectus. In eleifend neque eget commodo tempus. Maecenas ut urna sollicitudin eros posuere tristique. In hac habitasse platea dictumst. Vestibulum in iaculis ligula. Nulla vel euismod sem.</p>
                 </div>
             </div>
         </div>
@@ -39,12 +54,13 @@ render(){
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Latest Featured Posts </h1>
         </div>
     </div>
-        <div className="row " style={{alignText:"center"}}>
+    
+    <div className="row " style={{alignText:"center"}}>
         {
-            this.props.Data.Cards.map((data,idx)=>
+            Data.map((data,idx)=>
             {
                 return(
-                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{overflow:"auto"}}>
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Card CardData={data}/>
                 </div>);
             })
@@ -57,12 +73,20 @@ render(){
     </div>
         <div className="row " style={{alignText:"center"}}>
         {
-            this.props.Data.Cards.map((data,idx)=>
+            Data.map((data,idx)=>
             {
-                return(
-                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{overflow:"auto"}}>
-                <Card CardData={data}/>
-                </div>);
+                if(data.type=="Web"){
+                    return(
+                    <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                    <Card CardData={data}/>
+                    </div>);
+                    }
+                    else
+                    {
+                        return(
+                            <div></div>
+                        )
+                    }
             })
         }
     </div>
@@ -73,12 +97,20 @@ render(){
     </div>
         <div className="row " style={{alignText:"center"}}>
         {
-            this.props.Data.Cards.map((data,idx)=>
+            Data.map((data,idx)=>
             {
+                if(data.type=="DataScience"){
                 return(
-                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{overflow:"auto"}}>
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Card CardData={data}/>
                 </div>);
+                }
+                else
+                {
+                    return(
+                        <div></div>
+                    )
+                }
             })
         }
     </div>
@@ -89,16 +121,15 @@ render(){
     </div>
         <div className="row " style={{alignText:"center"}}>
         {
-            this.props.Data.Cards.map((data,idx)=>
+            Data.map((data,idx)=>
             {
                 return(
-                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{overflow:"auto"}}>
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Card CardData={data}/>
                 </div>);
             })
         }
     </div>
-        
     <div className="row">
             <br />
     </div>
@@ -106,4 +137,4 @@ render(){
     </>);
     }
 };
-export default withRouter(connect(mapStateToProps)(Home));
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(Home));

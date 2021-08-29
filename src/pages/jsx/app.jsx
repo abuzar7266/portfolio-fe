@@ -6,6 +6,7 @@ import Home from './home';
 import About from './about';
 import Contact from './contact';
 import Footer from '../../components/jsx/Footer';
+
 import { Route, Switch } from 'react-router';
 import { Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -18,9 +19,9 @@ class App extends Component{
     <Provider store={store}>
     <NavBar/>
     <Switch>
-    <Route exact path="/" component={Home}/>
-    <Route exact path="/about" component={About}/>
-    <Route exact path="/contact" component={Contact}/>
+    <Route exact path="/" component={() => <Home/>}/>
+    <Route exact path="/about" component={() => <About/>}/>
+    <Route exact path="/contact" component={() => <Contact/>}/>
     <Redirect to="/"/>
     </Switch>
     <Footer/>

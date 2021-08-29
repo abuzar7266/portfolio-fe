@@ -1,0 +1,3 @@
+export const ADD_PROJECTS = "ADD_PROJECT";
+export const PROJECTS_LOADING = "PROJECT_LOADING";
+export const PROJECTS_FAILED = "PROJECT_FAILED";

@@ -1,7 +1,30 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+.Main-Inner::before{
+    content:"";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    background-image: linear-gradient(to right,#0F2027,#203A43,#2C5364);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: .7;
+    mix-blend-mode:multiply;
+}
+.Main-Inner{
+    position:relative;
+}
+.Main-Inner > * {
+    z-index: 10;
+    position: relative;
+    color: white;
+}
 .Main-Outer{
-    background-image: url('../../images/nasa-Q1p7bh3SHj8-unsplash.jpg');
+    background-image: url('../../images/bg.jpg');
+    background-size: cover;
+    text-align: center;
 }  
 .Main-Inner{
         color:white;

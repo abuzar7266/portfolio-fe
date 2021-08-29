@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-const mapStateToProps = state => {
-    return {
-      Data:state.AboutData
-    }
-}
 
 class About extends Component
 {   
@@ -16,4 +9,4 @@ class About extends Component
     </>);
     }
 };
-export default withRouter(connect(mapStateToProps)(About));
+export default About;

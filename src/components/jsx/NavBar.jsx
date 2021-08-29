@@ -77,7 +77,7 @@ class NavBar extends Component
        
     </div>
 
-<Navbar collapseOnSelect expand="md" style={{backgroundColor:"#1C2331",color:"white"}}>
+<Navbar collapseOnSelect expand="lg" style={{backgroundColor:"#1C2331",color:"white"}}>
   <a className="navbar-brand" style={{color:"white",margin:"10px"}} href="/"><img src={Logo.default} className="img-fluid" height="150" width="150"/></a>
             
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />

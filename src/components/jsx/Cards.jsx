@@ -8,13 +8,13 @@ class Card extends Component{
         var {CardData} = this.props;
 return (<>
 <div className="card card-outer">
-  <img className="card-img-top card-img" src={CardData.imgSrc.default} alt="Card image cap"/>
+  <img className="card-img-top card-img" src={CardData.image.default} alt="Card image cap"/>
   <div className="card-body">
-  <h5 className="card-title">{CardData.Header}</h5>
-  <div id={CardData.CardID}>
-  <p className="card-text">{CardData.Text}</p>
+  <h5 className="card-title">{CardData.title}</h5>
+  <div id={CardData.userId}>
+  <p className="card-text text-flow" style={{fontSize:"12px",textAlign:"left"}}>{CardData.text}</p>
     </div>
-      <a href={CardData.ShowLink} className="btn card-btn"> <i className="fas fa-eye mr-3"> </i> Show More</a>
+    <a href={CardData.ShowLink} className="btn card-btn"> <i className="fas fa-eye mr-3"> </i> Show More</a>
   </div>
   </div>
         </>)
