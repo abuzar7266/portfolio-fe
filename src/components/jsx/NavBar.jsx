@@ -4,6 +4,7 @@ import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Button,Modal,Navbar,Container,Nav } from 'react-bootstrap';
 import {InputGroup,FormControl} from 'react-bootstrap';
+import { CloseButton } from 'react-bootstrap';
 class NavBar extends Component
 {
   constructor(props)
@@ -26,8 +27,9 @@ class NavBar extends Component
           <div>
           <div>
                     <Modal show={this.state.showHide}>
-                    <Modal.Header style={{backgroundColor:"#1C2331",color:"grey"}} closeButton onClick={() => this.handleModalShowHide()}>
+                    <Modal.Header style={{backgroundColor:"#1C2331",color:"grey"}} >
                     <Modal.Title color="red">Login</Modal.Title>
+                    <CloseButton style={{color:"grey",backgroundColor:"#1C2331",textDecoration:"none"}} onClick={() => this.handleModalShowHide()} />
                     </Modal.Header>
                     <Modal.Body>
                     <form>
@@ -73,8 +75,6 @@ class NavBar extends Component
                     </Modal.Footer>
                 </Modal>
           </div>
- 
-       
     </div>
 
 <Navbar collapseOnSelect expand="lg" style={{backgroundColor:"#1C2331",color:"white"}}>
@@ -88,6 +88,10 @@ class NavBar extends Component
         <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"80%",verticalAlign: "text-top",marginLeft:"5px",marginRight:"5px"}} to="./contact"> <span class="fa fa-address-card fa-lg"> </span>Contact </NavLink>
     </Nav>
     <div className="navbar-text" style={{alignText:"center",color:"white"}}>
+                <span class="navbar-text">
+                    <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%",fontSize:"30px"}}>
+                    <span class="fa fa-comment-alt"></span></a>
+                </span>
                 <span class="navbar-text">
                     <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
                     <span class="fa fa-sign-in"></span> Login </a>

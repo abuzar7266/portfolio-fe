@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addProject } from "../../redux/ActionCreators";
 import { fetchProjects } from "../../redux/ActionCreators";
-
+import { Button } from "react-bootstrap";
 
 
 const mapStateToProps = state => {
@@ -47,6 +47,13 @@ class Home extends Component
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row">
             <br />
+    </div>
+    <div className="row">
+            <div className="col-2">
+            <Button variant="outline-primary">Add New Project</Button>{' '}
+            </div>
+    </div>
+    <div className="row">
             <br />
     </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
