@@ -87,11 +87,11 @@ class Home extends Component
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-8">
+                            <div class="col-7">
                                 <label class="sr-only" for="exampleInputEmail3">Email address</label>
                                 <Form.Control type="email" placeholder="Total Time Taken" />
                             </div>
-                            <div class="col-3">
+                            <div class="col-2">
                             <DropdownButton id="dropdown-basic-button" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
                             <Dropdown.Item eventKey="Web-Based">WebDevelopment</Dropdown.Item>
                             <Dropdown.Item eventKey="Data-Science">Data-Science</Dropdown.Item>
@@ -101,12 +101,12 @@ class Home extends Component
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-10">
+                            <div class="col-8">
                                 <input
                                     type="file"
                                     id="attachImages"
                                     aria-describedby="attachImagesAddon01"
-                                    multiple style={{border:"2px solid #CED4DA"}}/>
+                                    multiple/>
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>

@@ -41,8 +41,8 @@ body {
 
 .Form-Modal{
    position:  fixed;
-   width: 400px;
+   width: 470px;
    top: 40px;
-   left: calc(50% - 200px);
+   left: calc(50% - 250px);
    bottom: 40px;
 }
