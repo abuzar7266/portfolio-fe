@@ -26,8 +26,8 @@ return (<>
   <p className="card-text text-flow" style={{fontSize:"12px",textAlign:"left"}}>{CardData.text}</p>
     </div>
     <a href="#" className="btn card-btn"> <i className="fas fa-eye mr-3"> </i> Show More</a>
-    <a href="#" className="btn" style={{color:"grey",marginTop:"30px"}}> <i className="fas fa-edit"> </i></a>
-    <a href="#" className="btn" style={{color:"grey",marginTop:"30px"}}> <i className="fas fa-times"> </i></a>
+    <a href="#" className="btn btn-sm" style={{color:"grey",marginTop:"30px"}}> <i className="fas fa-edit"> </i></a>
+    <a href="#" className="btn btn-sm" style={{color:"grey",marginTop:"30px"}}> <i className="fas fa-times"> </i></a>
   </div>
   </div>
   </div>
