@@ -63,6 +63,7 @@ class Home extends Component
     </div>
     </div>
     {/*Add Project Modal Form*/}
+    <div className="container-fluid">
     <Modal className="Form-Modal" show={this.state.HideForm}>
             <Modal.Header style={{backgroundColor:"#1C2331",color:"grey",verticalAlign:"center"}} >
                 <Modal.Title color="red">Upload New Project</Modal.Title>
@@ -71,10 +72,10 @@ class Home extends Component
             <Modal.Body>
                     <form>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-sm-10">
+                            <div class="col-10">
                                 <Form.Control type="text" placeholder="Project Title" />
                             </div>
-                            <div class="col-sm-1">
+                            <div class="col-1">
                                 <input
                                     type="file"
                                     id="inputGroupFile01"
@@ -86,11 +87,11 @@ class Home extends Component
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-sm-8">
+                            <div class="col-8">
                                 <label class="sr-only" for="exampleInputEmail3">Email address</label>
                                 <Form.Control type="email" placeholder="Total Time Taken" />
                             </div>
-                            <div class="col-sm-3">
+                            <div class="col-3">
                             <DropdownButton id="dropdown-basic-button" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
                             <Dropdown.Item eventKey="Web-Based">WebDevelopment</Dropdown.Item>
                             <Dropdown.Item eventKey="Data-Science">Data-Science</Dropdown.Item>
@@ -125,6 +126,7 @@ class Home extends Component
                     </form>
                 </Modal.Body>
     </Modal>
+    </div>
     {/*--------------------------------------------------------------*/}
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
