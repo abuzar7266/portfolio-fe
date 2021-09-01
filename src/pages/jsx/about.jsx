@@ -23,26 +23,28 @@ class About extends Component
                 <br />
             </Row>
         </Container>
-        <Container fluid style={{marginLeft:"100px"}}>
+        <Container fluid style={{marginLeft:"20px"}}>
             <Row>
                 <Col 
                     xs={12}
                     sm={12}
-                    md={3}
-                    lg={3}
-                    style={{backgroundColor:"#161C27",boxShadow:"5px 5px 10px black",color:"white",border:"1px solid white",marginRight:"50px"}}
+                    md={2}
+                    lg={2}
+                    style={{color:"white",marginRight:"50px",marginBottom:"40px" }}
                     className="align-self-center"
                 >
-                <Image height="110px" width="110px" style={{borderRadius:"50%",paddingTop:"20px"}} src={imgs} fluid/>
-                <p style={{fontSize:"14px"}}>@Abuzar</p>
+                    <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",backgroundColor:"#161C27",border:"1px solid white",borderRadius:"30px"}} fluid>
+                    <Card.Header><Image height="110px" width="110px" style={{borderRadius:"50%",paddingTop:"20px"}} src={imgs} fluid/></Card.Header>
+                    <Card.Body style={{backgroundColor:"#1C2331",color:"white",borderRadius:"30px"}}>
+                        <Card.Text>
+                        <p style={{fontSize:"14px"}}>@Abuzar</p>
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                        
+                    </Card.Footer>
+                    </Card>
                 </Col>
-                <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
                 <Col 
                     xs={10}
                     sm={10}
@@ -51,7 +53,7 @@ class About extends Component
                     style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fa fa-book" aria-hidden="true"></i> Personal Information</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -62,13 +64,6 @@ class About extends Component
                 </Card>
                 </Col>
                 <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
-                <Col 
                     xs={10}
                     sm={10}
                     md={4}
@@ -76,7 +71,7 @@ class About extends Component
                     style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fas fa-network-wired"></i> Experience</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -89,23 +84,14 @@ class About extends Component
             </Row>
             <Row>
                 <Col 
-                    xs={2}
-                    sm={2}
-                    md={0}
-                    lg={0}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
-                <Col 
                     xs={9}
                     sm={9}
-                    md={3}
-                    lg={3}
+                    md={2}
+                    lg={2}
                     style={{textAlign:"left"}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '15rem',boxShadow:"5px 5px 10px black" }} fluid className="mt-2">
+                <Card style={{ width: '15rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"   }} fluid className="mt-2">
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}>Tools and Technologies</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text  style={{marginLeft:"25px"}}>
@@ -124,23 +110,16 @@ class About extends Component
                     </Card.Text>
                 </Card.Body>
                 </Card>
-                </Col>
-                <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
                 </Col> 
                 <Col 
                     xs={10}
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left',marginLeft:"50px"}}
+                    style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"   }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -153,13 +132,6 @@ class About extends Component
                     </Card.Text>
                 </Card.Body>
                 </Card>
-                </Col>
-                <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
                 </Col> 
                 <Col 
                     xs={10}
@@ -169,8 +141,8 @@ class About extends Component
                     style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" ,height:"280px"}} fluid>
-                <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</div></p></Card.Header>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" ,height:"280px",marginBottom:"20px"  }} fluid>
+                <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fa fa-graduation-cap" aria-hidden="true"></i> Education</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
                     <p style={{marginLeft:"10px",fontSize:"12px"}}>Field of Study: Datascience <br/> Institute : FAST NUCES Islamabad 
@@ -184,26 +156,19 @@ class About extends Component
                 <Col 
                     xs={0}
                     sm={0}
-                    md={3}
-                    lg={3}
+                    md={2}
+                    lg={2}
                 >
                 </Col>
-                <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
                 <Col 
                     xs={10}
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left',marginLeft:"50px"}}
+                    style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fas fa-tasks"></i> Hobbies</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -214,13 +179,6 @@ class About extends Component
                 </Card>
                 </Col>
                 <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
-                <Col 
                     xs={10}
                     sm={10}
                     md={4}
@@ -228,7 +186,7 @@ class About extends Component
                     style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fas fa-cogs"></i> Areas of Expertise</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -243,26 +201,19 @@ class About extends Component
                 <Col 
                     xs={0}
                     sm={0}
-                    md={3}
-                    lg={3}
+                    md={2}
+                    lg={2}
                 >
                 </Col>
-                <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
                 <Col 
                     xs={10}
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left',marginLeft:"50px"}}
+                    style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"70px",marginTop:"15px" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"70px"}} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fas fa-award"></i> Awards and Certifications</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -273,13 +224,6 @@ class About extends Component
                 </Card>
                 </Col>
                 <Col 
-                    xs={2}
-                    sm={2}
-                    style={{textAlign:"left"}}
-                    className="d-block d-sm-none"
-                >
-                </Col> 
-                <Col 
                     xs={10}
                     sm={10}
                     md={4}
@@ -287,7 +231,7 @@ class About extends Component
                     style={{textAlign:'left'}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"70px",marginTop:"15px" }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"70px" }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fa fa-language" aria-hidden="true"></i> Languages</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -318,7 +262,7 @@ class About extends Component
                 md={4}
                 lg={4}
                 >
-                  <Card style={{boxShadow:"5px 5px 10px black"}}>
+                  <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Future Vision
                        </Card.Header>
@@ -336,7 +280,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                  <Card style={{boxShadow:"5px 5px 10px black"}}>
+                  <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Profile Summary
                        </Card.Header>
@@ -354,7 +298,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                   <Card style={{boxShadow:"5px 5px 10px black"}}>
+                   <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Current Job Status
                        </Card.Header>
@@ -391,7 +335,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Feedback and Reviews
                        </Card.Header>
@@ -409,7 +353,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Personal Links
                        </Card.Header>
@@ -428,7 +372,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Contact Information
                        </Card.Header>
