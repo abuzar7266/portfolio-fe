@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Carousel } from 'react-bootstrap';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import image3 from '../../images/myPic.jpg';
 const ControlledCarousel = () => {
     const [index, setIndex] = useState(0);
   

@@ -141,7 +141,7 @@ class Home extends Component
         </div>
     </div>
     
-    <div className="row " style={{alignText:"center"}}>
+    <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
         {
             Data.map((data,idx)=>
             {
@@ -157,7 +157,7 @@ class Home extends Component
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Web-Development Projects</h1>
         </div>
     </div>
-        <div className="row " style={{alignText:"center"}}>
+        <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
         {
             Data.map((data,idx)=>
             {
@@ -181,7 +181,7 @@ class Home extends Component
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Data Science Projects</h1>
         </div>
     </div>
-        <div className="row " style={{alignText:"center"}}>
+        <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
         {
             Data.map((data,idx)=>
             {
@@ -205,7 +205,7 @@ class Home extends Component
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Ideation Block</h1>
         </div>
     </div>
-        <div className="row " style={{alignText:"center"}}>
+        <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
         {
             Data.map((data,idx)=>
             {
@@ -216,7 +216,7 @@ class Home extends Component
             })
         }
     </div>
-    <div className="row">
+    <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>
     </div>
