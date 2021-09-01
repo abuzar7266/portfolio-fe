@@ -30,19 +30,17 @@ class About extends Component
                     sm={12}
                     md={2}
                     lg={2}
-                    style={{color:"white",marginRight:"50px",marginBottom:"40px" }}
+                    style={{color:"white",marginRight:"50px",marginBottom:"40px",overflow:"hidden",textAlign:"center" }}
                     className="align-self-center"
                 >
-                    <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",backgroundColor:"#161C27",border:"1px solid white",borderRadius:"30px"}} fluid>
+                    <Card style={{ width: '8rem',boxShadow:"5px 5px 10px black",backgroundColor:"#161C27",border:"1px solid white",borderRadius:"30px",overflow:"hidden"}} fluid>
                     <Card.Header><Image height="110px" width="110px" style={{borderRadius:"50%",paddingTop:"20px"}} src={imgs} fluid/></Card.Header>
                     <Card.Body style={{backgroundColor:"#1C2331",color:"white",borderRadius:"30px"}}>
                         <Card.Text>
                         <p style={{fontSize:"14px"}}>@Abuzar</p>
                         </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                        
-                    </Card.Footer>
+                    <Card.Footer></Card.Footer>
                     </Card>
                 </Col>
                 <Col 
@@ -50,10 +48,10 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px",overflow:"hidden"  }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fa fa-book" aria-hidden="true"></i> Personal Information</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -68,10 +66,10 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
+                <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px",overflow:"hidden"  }} fluid>
                 <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}> <i class="fas fa-network-wired"></i> Experience</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text>
@@ -83,16 +81,17 @@ class About extends Component
                 </Col>
             </Row>
             <Row>
+                
                 <Col 
                     xs={9}
                     sm={9}
                     md={2}
                     lg={2}
-                    style={{textAlign:"left"}}
+                    style={{textAlign:"left",overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{ width: '15rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"   }} fluid className="mt-2">
-                <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{marginLeft:"0px",fontSize:"16px"}}><div style={{marginLeft:"10px"}}>Tools and Technologies</div></p></Card.Header>
+                <Card style={{ width: '15rem',boxShadow:"5px 5px 10px black",marginBottom:"20px" ,overflow:"hidden"  }} fluid>
+                <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}><p style={{fontSize:"16px"}}><div style={{marginLeft:"10px"}}>Tools and Technologies</div></p></Card.Header>
                 <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                     <Card.Text  style={{marginLeft:"25px"}}>
                     <p style={{marginLeft:"10px",fontSize:"12px",marginTop:"2px",marginBottom:"2px"}}>HTML</p>
@@ -116,7 +115,7 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
                 <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"   }} fluid>
@@ -138,7 +137,7 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
                 <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black" ,height:"280px",marginBottom:"20px"  }} fluid>
@@ -165,7 +164,7 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
                 <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
@@ -183,7 +182,7 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
                 <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"20px"  }} fluid>
@@ -210,7 +209,7 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
                 <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"70px"}} fluid>
@@ -228,7 +227,7 @@ class About extends Component
                     sm={10}
                     md={4}
                     lg={3}
-                    style={{textAlign:'left'}}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
                 <Card style={{ width: '22rem',boxShadow:"5px 5px 10px black",marginBottom:"70px" }} fluid>
