@@ -12,6 +12,8 @@ import { Button,Modal} from 'react-bootstrap';
 import {Form,InputGroup,FormControl} from 'react-bootstrap';
 import { CloseButton } from 'react-bootstrap';
 import { DropdownButton,Dropdown } from "react-bootstrap";
+import { responsive } from "../../components/jsx/CardSlider";
+import Carousel from "react-multi-carousel";
 
 const mapStateToProps = state => {
     return {
@@ -142,6 +144,7 @@ class Home extends Component
     </div>
     
     <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
+    <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
             {
@@ -151,61 +154,73 @@ class Home extends Component
                 </div>);
             })
         }
+        {
+            Data.map((data,idx)=>
+            {
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                <Card CardData={data}/>
+                </div>);
+            })
+        }
+    </Carousel>
     </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Web-Development Projects</h1>
         </div>
     </div>
-        <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
+    <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
             {
-                if(data.type=="Web"){
-                    return(
-                    <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                    <Card CardData={data}/>
-                    </div>);
-                    }
-                    else
-                    {
-                        return(
-                            <div></div>
-                        )
-                    }
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                <Card CardData={data}/>
+                </div>);
             })
         }
-    </div>
+        {
+            Data.map((data,idx)=>
+            {
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                <Card CardData={data}/>
+                </div>);
+            })
+        }
+    </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Data Science Projects</h1>
         </div>
     </div>
-        <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
+    <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
             {
-                if(data.type=="DataScience"){
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Card CardData={data}/>
                 </div>);
-                }
-                else
-                {
-                    return(
-                        <div></div>
-                    )
-                }
             })
         }
-    </div>
+        {
+            Data.map((data,idx)=>
+            {
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                <Card CardData={data}/>
+                </div>);
+            })
+        }
+    </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Ideation Block</h1>
         </div>
     </div>
-        <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
+    <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
             {
@@ -215,7 +230,16 @@ class Home extends Component
                 </div>);
             })
         }
-    </div>
+        {
+            Data.map((data,idx)=>
+            {
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                <Card CardData={data}/>
+                </div>);
+            })
+        }
+    </Carousel>
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>
