@@ -6,19 +6,22 @@ import { Button,Modal,Navbar,Container,Nav } from 'react-bootstrap';
 import {InputGroup,FormControl} from 'react-bootstrap';
 import { CloseButton } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
+import { Col,Row } from 'react-bootstrap';
 class NavBar extends Component
 {
   constructor(props)
     {
         super(props);
         this.state = {
-            showHide : false
+            showHide : false,
+            username:"",
+            password:""
         }
     }
 
-  handleModalShowHide() 
+  handleModalShowHide(u,p) 
   {
-        this.setState({ showHide: !this.state.showHide })
+        this.setState({ showHide: !this.state.showHide,username:u,password:p })
   }
   render()
   {
@@ -29,13 +32,13 @@ class NavBar extends Component
           <div>
                 <Modal show={this.state.showHide}>
                 <Card style={{boxShadow:"5px 5px 10px black"}}>
-                       <Card.Header style={{backgroundColor:"#161C27",height:"45px",color:"white"}}>
+                       <Card.Header style={{backgroundColor:"#161C27",minheight:"45px",color:"white"}}>
                        <div className="row">
                        <div class="col-11">
                                 Login
                        </div>
                        <div class="col-1">
-                       <span style={{color:"grey",backgroundColor:"transparent",textDecoration:"none",cursor:"pointer"}} onClick={() => this.handleModalShowHide()}><i class="far fa-times-circle"></i></span>
+                       <span style={{color:"grey",backgroundColor:"transparent",textDecoration:"none",cursor:"pointer"}} onClick={() => this.handleModalShowHide("Hi","y")}><i class="far fa-times-circle"></i></span>
                         </div>
                        </div>
                        </Card.Header>
@@ -51,7 +54,8 @@ class NavBar extends Component
                                             placeholder="username"
                                             aria-label="username"
                                             aria-describedby="basic-addon1"
-                                        />
+                                            value={this.state.username}
+                                            required/>
                                         </InputGroup>
                                     </div>
                                 
@@ -60,10 +64,12 @@ class NavBar extends Component
                                         <InputGroup className="mb-3">
                                         <InputGroup.Text id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></InputGroup.Text>
                                         <FormControl
+                                            type="password"
                                             placeholder="Password"
                                             aria-label="Password"
                                             aria-describedby="basic-addon2"
-                                        />
+                                            value={this.state.password}
+                                            required/>
                                         </InputGroup>
                                     </div>
                                     <div class="col-sm-auto" style={{textAlign:"left"}}>
@@ -75,8 +81,7 @@ class NavBar extends Component
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <button type="button" class="btn btn-secondary btn-sm ml-auto" style={{margin:"10px",boxShadow:"1px 1px 10px black"}} onClick={() => {this.handleModalShowHide()}}> Cancel </button>
-                                    <button type="submit" class="btn btn-primary btn-sm ml-1" style={{margin:"10px",boxShadow:"1px 1px 10px black"}}> Save </button>
+                                    <button type="submit" class="btn btn-primary btn-sm ml-1" style={{margin:"10px",boxShadow:"1px 1px 10px black"}}> Sign-up </button>
                                 </div>
                             </form>
                           </Card.Text>
@@ -85,29 +90,51 @@ class NavBar extends Component
                 </Modal>
           </div>
     </div>
-
-<Navbar collapseOnSelect expand="lg" style={{backgroundColor:"#1C2331",color:"white"}}>
-  <a className="navbar-brand" style={{color:"white",margin:"10px"}} href="/"><img src={Logo.default} className="img-fluid" height="150" width="150"/></a>
-            
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-  <Navbar.Collapse id="responsive-navbar-nav">
-    <Nav className="me-auto">
-        <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"80%",verticalAlign: "text-top",marginLeft:"5px",marginRight:"5px"}} to="./"> <span class="fa fa-home fa-lg"> </span>Home </NavLink>
-        <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"80%",verticalAlign: "text-top",marginLeft:"5px",marginRight:"5px"}} to="./about"> <span class="fa fa-info fa-lg"> </span>About </NavLink>
-        <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"80%",verticalAlign: "text-top",marginLeft:"5px",marginRight:"5px"}} to="./contact"> <span class="fa fa-address-card fa-lg"> </span>Contact </NavLink>
-    </Nav>
-    <div className="navbar-text" style={{alignText:"center",color:"white"}}>
-                <span class="navbar-text">
-                    <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%",fontSize:"30px"}}>
-                    <span class="fa fa-comment-alt"></span></a>
-                </span>
-                <span class="navbar-text">
-                    <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
-                    <span class="fa fa-sign-in"></span> Login </a>
-                </span>
-    </div>
-  </Navbar.Collapse>
-</Navbar>
+<Container fluid>
+    <Row>
+        <Navbar collapseOnSelect expand="lg" style={{backgroundColor:"#1C2331",color:"white"}}>
+            <div className="order-lg-2 order-2">
+                            <div className="navbar-text" style={{alignText:"center",color:"white"}}>
+                            <span class="navbar-text">
+                                <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
+                                <span class="fa fa-sign-in"></span> Login </a>
+                            </span>
+            </div>
+            </div>
+            <div className="order-lg-0 order-1"><Col 
+                xs={10}
+                sm={10}
+                md={10}
+                lg={10}
+                style={{textAlign:"left"}}><a className="navbar-brand" style={{color:"white",margin:"10px"}} href="/"><img src={Logo.default} className="img-fluid" height="150" width="150"/></a>          
+            </Col></div>
+            <div className="order-lg-5 order-0"><Navbar.Toggle aria-controls="responsive-navbar-nav" /></div>
+            <Navbar.Collapse id="responsive-navbar-nav">
+                <Nav className="me-auto">
+                    <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={3}
+                    style={{margin:"10px",color:"#6351CE"}}>
+                    <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./">Home </NavLink></Col>
+                    <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={3}
+                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./about">About </NavLink></Col>
+                    <Col
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    lg={3}
+                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./contact">Contact </NavLink></Col>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>
+        </Row>
+</Container>
 </div>
 </>
     )

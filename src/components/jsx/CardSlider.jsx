@@ -1,9 +1,19 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 export const responsive = {
+  JumboExtrasuperLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 6000, min: 4500 },
+    items: 12
+  },
+  JumbosuperLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4500, min: 3500 },
+    items: 11
+  },
   superLargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 7000, min: 3000 },
+    breakpoint: { max: 3500, min: 3000 },
     items: 6
   },
   desktop: {

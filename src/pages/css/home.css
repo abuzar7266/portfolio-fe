@@ -36,13 +36,13 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 25px;
     background: white;
-    max-width:1900px; text-align:center;margin-left:auto ;margin-right:auto;
+    max-width:4000px; text-align:center;margin-left:auto ;margin-right:auto;
 }
 
 .Form-Modal{
-   position:sticky;
-   width: 470px;
+   position:fixed;
+   width: 4000px;
    top: 40px;
-   left: calc(50% - 250px);
+   left: calc(50% - 200px);
    bottom: 40px;
 }

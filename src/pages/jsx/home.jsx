@@ -144,8 +144,7 @@ class Home extends Component
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
             <div className="col-12" style={{paddingTop:"30px",paddingBottom:"30px"}}>
-            <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-upload"></i> New Project</Button>{' '}
-            <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-camera"></i> New Feature</Button>{' '}
+            <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>{' '}
             </div>
     </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -160,7 +159,7 @@ class Home extends Component
             Data.map((data,idx)=>
             {
                 return(
-                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
+                <div className="col-sm-10 offset-1 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{textAlign:"center"}}>
                 <Post CardData={data}/>
                 </div>);
             })
