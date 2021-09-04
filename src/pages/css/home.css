@@ -40,7 +40,7 @@ body {
 }
 
 .Form-Modal{
-   position:sticky;
+   position:-webkit-sticky;
    width: 470px;
    top: 40px;
    left: calc(50% - 250px);
