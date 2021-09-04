@@ -95,7 +95,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             <Row>
                 <Col xs={0}
                     sm={0}
-                    md={2}
+                    md={1}
                     lg={2}>
 
                 </Col>

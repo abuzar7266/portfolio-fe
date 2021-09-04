@@ -5,6 +5,7 @@ import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
 import { Button,Modal,Navbar,Container,Nav } from 'react-bootstrap';
 import {InputGroup,FormControl} from 'react-bootstrap';
 import { CloseButton } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 class NavBar extends Component
 {
   constructor(props)
@@ -26,53 +27,61 @@ class NavBar extends Component
     <div>
           <div>
           <div>
-                    <Modal show={this.state.showHide}>
-                    <Modal.Header style={{backgroundColor:"#1C2331",color:"grey"}} >
-                    <Modal.Title color="red">Login</Modal.Title>
-                    <CloseButton style={{color:"grey",backgroundColor:"#1C2331",textDecoration:"none"}} onClick={() => this.handleModalShowHide()} />
-                    </Modal.Header>
-                    <Modal.Body>
-                    <form>
-                        <div class="form-row">
-                            <div class="form-group col-sm-10">
-                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                <InputGroup className="mb-3">
-                                <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
-                                  <FormControl
-                                     placeholder="Email Address"
-                                     aria-label="Email Address"
-                                     aria-describedby="basic-addon1"
-                                  />
-                                  </InputGroup>
-                            </div>
-                        
-                            <div class="form-group col-sm-10">
-                                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                                <InputGroup className="mb-3">
-                                <InputGroup.Text id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></InputGroup.Text>
-                                  <FormControl
-                                     placeholder="Password"
-                                     aria-label="Password"
-                                     aria-describedby="basic-addon2"
-                                  />
-                                  </InputGroup>
-                            </div>
-                            <div class="col-sm-auto" style={{textAlign:"left"}}>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox"/>
-                                    <label class="form-check-label">Remember me
-                                    </label>
+                <Modal show={this.state.showHide}>
+                <Card style={{boxShadow:"5px 5px 10px black"}}>
+                       <Card.Header style={{backgroundColor:"#161C27",height:"45px",color:"white"}}>
+                       <div className="row">
+                       <div class="col-11">
+                                Login
+                       </div>
+                       <div class="col-1">
+                       <span style={{color:"grey",backgroundColor:"transparent",textDecoration:"none",cursor:"pointer"}} onClick={() => this.handleModalShowHide()}><i class="far fa-times-circle"></i></span>
+                        </div>
+                       </div>
+                       </Card.Header>
+                       <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
+                           <Card.Text>
+                           <form>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-10">
+                                        <label class="sr-only" for="exampleInputEmail3">username</label>
+                                        <InputGroup className="mb-3">
+                                        <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
+                                        <FormControl
+                                            placeholder="username"
+                                            aria-label="username"
+                                            aria-describedby="basic-addon1"
+                                        />
+                                        </InputGroup>
+                                    </div>
+                                
+                                    <div class="form-group col-sm-10">
+                                        <label class="sr-only" for="exampleInputPassword3">Password</label>
+                                        <InputGroup className="mb-3">
+                                        <InputGroup.Text id="basic-addon1"><i class="fa fa-key" aria-hidden="true"></i></InputGroup.Text>
+                                        <FormControl
+                                            placeholder="Password"
+                                            aria-label="Password"
+                                            aria-describedby="basic-addon2"
+                                        />
+                                        </InputGroup>
+                                    </div>
+                                    <div class="col-sm-auto" style={{textAlign:"left"}}>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"/>
+                                            <label class="form-check-label">Remember me
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" onClick={() => this.handleModalShowHide()} id="loginCancel">Cancel</button>
-                            <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
-                        </div>
-                    </form>
-                    </Modal.Body>
-                    <Modal.Footer>
-                    </Modal.Footer>
+                                <div class="form-row">
+                                    <button type="button" class="btn btn-secondary btn-sm ml-auto" style={{margin:"10px",boxShadow:"1px 1px 10px black"}} onClick={() => {this.handleModalShowHide()}}> Cancel </button>
+                                    <button type="submit" class="btn btn-primary btn-sm ml-1" style={{margin:"10px",boxShadow:"1px 1px 10px black"}}> Save </button>
+                                </div>
+                            </form>
+                          </Card.Text>
+                       </Card.Body>
+                   </Card>
                 </Modal>
           </div>
     </div>

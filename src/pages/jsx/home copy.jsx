@@ -1,8 +1,7 @@
 
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from 'react';
-import Post from '../../components/jsx/Cards';
-import { Card } from "react-bootstrap";
+import Card from '../../components/jsx/Cards';
 import '../css/home.css';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -66,22 +65,14 @@ class Home extends Component
     </div>
     </div>
     {/*Add Project Modal Form*/}
-    <div className="container-fluid" style={{alignContent:"center"}}>
-    <Modal className="Form-Modal" show={this.state.HideForm} style={{maxWidth:"400px",textAlign:"center"}}>
-                    <Card style={{boxShadow:"5px 5px 10px black",maxWidth:"400px"}}>
-                       <Card.Header style={{backgroundColor:"#161C27",height:"45px",color:"white"}}>
-                       <div className="row">
-                       <div class="col-10">
-                                Post a New Project
-                       </div>
-                       <div class="col-1">
-                       <span style={{color:"grey",backgroundColor:"transparent",textDecoration:"none",cursor:"pointer",marginLeft:"15px"}} onClick={() => this.handleAddProjectForm()}><i class="far fa-times-circle"></i></span>
-                        </div>
-                       </div>
-                       </Card.Header>
-                       <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
-                           <Card.Text>
-                           <form>
+    <div className="container-fluid">
+    <Modal className="Form-Modal" show={this.state.HideForm}>
+            <Modal.Header style={{backgroundColor:"#1C2331",color:"grey",verticalAlign:"center"}} >
+                <Modal.Title color="red">Upload New Project</Modal.Title>
+                <CloseButton style={{color:"grey",backgroundColor:"#1C2331",textDecoration:"none"}} onClick={() => this.handleAddProjectForm()}/>
+            </Modal.Header>
+            <Modal.Body>
+                    <form>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
                             <div class="col-10">
                                 <Form.Control type="text" placeholder="Project Title" />
@@ -92,7 +83,7 @@ class Home extends Component
                                     id="inputGroupFile01"
                                     aria-describedby="inputGroupFileAddon01"
                                     hidden/>
-                                    <label className="custom-file-label btn" style={{border:"1px solid black",color:"white"}} htmlFor="inputGroupFile01">
+                                    <label className="custom-file-label btn" style={{border:"1px solid black"}} htmlFor="inputGroupFile01">
                                     <i class="fa fa-image" aria-hidden="true"></i>
                                 </label>
                             </div>
@@ -131,13 +122,11 @@ class Home extends Component
                             </div>
                         </div>
                         <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" style={{margin:"10px",boxShadow:"1px 1px 10px black"}} onClick={() => {this.handleAddProjectForm();this.handelDropDown("Select Type")}}> Cancel </button>
-                            <button type="submit" class="btn btn-primary btn-sm ml-1" style={{margin:"10px",boxShadow:"1px 1px 10px black"}}> Save </button>
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" style={{margin:"10px",boxShadow:"1px 1px 10px grey"}} onClick={() => {this.handleAddProjectForm();this.handelDropDown("Select Type")}}> Cancel </button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1" style={{margin:"10px",boxShadow:"1px 1px 10px grey"}}> Save </button>
                         </div>
                     </form>
-                          </Card.Text>
-                       </Card.Body>
-                   </Card>
+                </Modal.Body>
     </Modal>
     </div>
     {/*--------------------------------------------------------------*/}
@@ -161,7 +150,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -170,7 +159,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -187,7 +176,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -196,7 +185,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -212,7 +201,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -221,7 +210,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -237,7 +226,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
@@ -246,7 +235,7 @@ class Home extends Component
             {
                 return(
                 <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
-                <Post CardData={data}/>
+                <Card CardData={data}/>
                 </div>);
             })
         }
