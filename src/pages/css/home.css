@@ -33,7 +33,7 @@
 }
 body {
    
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: Verdana  sans-serif;
     font-size: 25px;
     background: white;
     max-width:4000px; text-align:center;margin-left:auto ;margin-right:auto;
@@ -42,7 +42,7 @@ body {
 .Form-Modal{
    position:fixed;
    width: 4000px;
-   top: 40px;
+   top: 0px;
    left: calc(50% - 200px);
    bottom: 40px;
 }

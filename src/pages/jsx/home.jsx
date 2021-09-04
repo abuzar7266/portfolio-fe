@@ -67,7 +67,7 @@ class Home extends Component
     </div>
     {/*Add Project Modal Form*/}
     <div className="container-fluid" style={{alignContent:"center"}}>
-    <Modal className="Form-Modal" show={this.state.HideForm} style={{maxWidth:"400px",textAlign:"center"}}>
+    <Modal className="Form-Modal" show={this.state.HideForm} style={{maxWidth:"380px",textAlign:"center"}}>
                     <Card style={{boxShadow:"5px 5px 10px black",maxWidth:"400px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"45px",color:"white"}}>
                        <div className="row">

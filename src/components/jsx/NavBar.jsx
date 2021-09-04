@@ -15,10 +15,14 @@ class NavBar extends Component
         this.state = {
             showHide : false,
             username:"",
-            password:""
+            password:"",
+            activeClass:"Home"
         }
     }
-
+  handleActiveClass(u)
+  {
+    this.setState({ activeClass: u})
+  }
   handleModalShowHide(u,p) 
   {
         this.setState({ showHide: !this.state.showHide,username:u,password:p })
@@ -117,19 +121,19 @@ class NavBar extends Component
                     md={12}
                     lg={3}
                     style={{margin:"10px",color:"#6351CE"}}>
-                    <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./">Home </NavLink></Col>
+                    <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./" onClick={()=>{this.handleActiveClass("Home")}}>{(this.state.activeClass=="Home")?<div style={{textDecoration: 'none' ,color:"white",opacity:"85%",textShadow:"5px 5px 5px black"}}>Home</div>:<div style={{textDecoration: 'none' ,color:"white",opacity:"60%"}}>Home</div>} </NavLink></Col>
                     <Col
                     xs={12}
                     sm={12}
                     md={12}
                     lg={3}
-                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./about">About </NavLink></Col>
+                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./about" onClick={()=>{this.handleActiveClass("About")}}>{(this.state.activeClass=="About")?<div style={{textDecoration: 'none' ,color:"white",opacity:"85%",textShadow:"5px 5px 5px black"}}>About</div>:<div style={{textDecoration: 'none' ,color:"white",opacity:"60%"}}>About</div>} </NavLink></Col>
                     <Col
                     xs={12}
                     sm={12}
                     md={12}
                     lg={3}
-                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./contact">Contact </NavLink></Col>
+                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./contact" onClick={()=>{this.handleActiveClass("Contact")}}>{(this.state.activeClass=="Contact")?<div style={{textDecoration: 'none' ,color:"white",opacity:"85%",textShadow:"5px 5px 5px black"}}>Contact</div>:<div style={{textDecoration: 'none' ,color:"white",opacity:"60%"}}>Contact</div>} </NavLink></Col>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
