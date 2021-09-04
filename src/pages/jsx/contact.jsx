@@ -17,23 +17,27 @@ class Contact extends Component
               <Col xs={0}
                    sm={0}
                    md={0}
-                   lg={7}>
-                    <Col xs={0}
-                        sm={0}
-                        md={0}
-                        lg={7}>
-                          <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",maxWidth:"300px"}}>
+                   lg={1}
+                   className="align-self-center">
+              </Col>
+              <Col xs={12}
+                   sm={12}
+                   md={0}
+                   lg={6}
+                   className="align-self-center">
+                          <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",maxWidth:"600px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                        Contact us
                        </Card.Header>
                           <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                               <Card.Text>
-                              <Image height="110px" width="110px" style={{borderRadius:"50%",paddingTop:"20px"}} src={imgs} fluid/>
+                              <Image height="180px" width="165px" style={{borderRadius:"50%",paddingTop:"20px",boxShadow:"10px 10px 10px black"}} src={imgs} fluid/>
                               <p style={{fontSize:"15px",paddingTop:"10px"}}>@Abuzar</p>
+                              <p style={{fontSize:"11px",paddingTop:"10px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
+Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
                               </Card.Text>
                           </Card.Body>
                         </Card>
-                    </Col>
               </Col>
               <Col xs={12}
                    sm={12}
@@ -102,6 +106,17 @@ class Contact extends Component
                    </Card>
               </Col>
             </Row>
+       </Container>
+       <Container fluid>
+         <Row style={{color:"black"}}>
+            <Col>
+              <br />
+              <br />
+              <hr />
+              <br />
+              <br />
+            </Col>
+         </Row>
        </Container>
     </>);
   }
