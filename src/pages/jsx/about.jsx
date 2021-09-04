@@ -23,13 +23,12 @@ class About extends Component
                 <br />
             </Row>
         </Container>
-        <Container fluid style={{marginLeft:"20px"}}>
+        <Container fluid>
             <Row>
                 <Col xs={0}
                     sm={0}
                     md={1}
                     lg={2}>
-
                 </Col>
                 <Col 
                     xs={12}
