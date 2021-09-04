@@ -158,35 +158,19 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-1 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2" style={{textAlign:"center"}}>
                 <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
         }
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-1 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
         }
     </Carousel>
@@ -200,37 +184,12 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-1 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
-        {
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
+    }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
@@ -241,35 +200,19 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
         }
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
         }
     </Carousel>
@@ -282,35 +225,19 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
         }
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(
+                <div className="col-sm-10 offset-2 col-md-6 offset-md-0 col-lg-4 col-xl-3 col-xxl-2">
                 <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div>
-                <Post CardData={data}/>
-                </div>
-                );
+                </div>);
             })
         }
     </Carousel>
