@@ -27,7 +27,7 @@ class About extends Component
             <Row>
                 <Col xs={0}
                     sm={0}
-                    md={2}
+                    md={1}
                     lg={2}>
 
                 </Col>
@@ -95,9 +95,8 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             <Row>
                 <Col xs={0}
                     sm={0}
-                    md={1}
+                    md={0}
                     lg={2}>
-
                 </Col>
                 <Col 
                     xs={9}
@@ -163,7 +162,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             <Row>
                 <Col xs={0}
                     sm={0}
-                    md={2}
+                    md={1}
                     lg={2}>
 
                 </Col>
@@ -219,7 +218,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 <Col 
                     xs={0}
                     sm={0}
-                    md={4}
+                    md={3}
                     lg={4}
                 >
                 </Col>
