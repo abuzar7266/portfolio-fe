@@ -158,7 +158,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -166,7 +166,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -175,7 +175,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -183,7 +183,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -200,7 +200,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -208,7 +208,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -217,7 +217,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -225,7 +225,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -241,7 +241,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -249,7 +249,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -258,7 +258,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -266,7 +266,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -282,7 +282,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -290,7 +290,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -299,7 +299,7 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
@@ -307,7 +307,7 @@ class Home extends Component
         }{
             Data.map((data,idx)=>
             {
-                return(<div>
+                return(<div className="offset-2">
                 <Post CardData={data}/>
                 </div>
                 );
