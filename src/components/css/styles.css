@@ -167,6 +167,6 @@ h1 {
   }
 }
 
-.accordion-transition{
-  transition-timing-function: ease-in-out;
+.modal-full .modal-content {
+  min-height: 100vh;
 }

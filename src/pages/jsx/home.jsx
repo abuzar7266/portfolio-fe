@@ -54,6 +54,7 @@ class Home extends Component
     const Data = this.props.projects.projects;
     console.log(Data);
     return (<>
+    <div>
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>
         <div className="container" >
@@ -104,10 +105,10 @@ class Home extends Component
                             </div>
                             <div class="col-2">
                             <DropdownButton id="dropdown-basic-button" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
-                            <Dropdown.Item eventKey="Web-Based">WebDevelopment</Dropdown.Item>
-                            <Dropdown.Item eventKey="Data-Science">Data-Science</Dropdown.Item>
-                            <Dropdown.Item eventKey="Ideation Based">Ideation Based</Dropdown.Item>
-                            <Dropdown.Item eventKey="Something else">Something else</Dropdown.Item>
+                            <Dropdown.Item eventKey="Web">Development Project</Dropdown.Item>
+                            <Dropdown.Item eventKey="Data">Data-Science Project</Dropdown.Item>
+                            <Dropdown.Item eventKey="Ideate">Ideation and Theories</Dropdown.Item>
+                            <Dropdown.Item eventKey="Post">Post on Website</Dropdown.Item>
                             </DropdownButton>
                             </div>
                         </div>
@@ -163,31 +164,6 @@ class Home extends Component
                 </div>
                 );
             })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
-        {
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
         }
     </Carousel>
     </div>
@@ -205,31 +181,6 @@ class Home extends Component
                 </div>
                 );
             })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
-        {
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -239,31 +190,6 @@ class Home extends Component
     </div>
     <Carousel responsive={responsive}>
         {
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
-        {
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
             Data.map((data,idx)=>
             {
                 return(<div className="offset-1">
@@ -316,6 +242,7 @@ class Home extends Component
     </Carousel>
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
+    </div>
     </div>
     </div>
     </>);
