@@ -27,18 +27,19 @@ class About extends Component
             <Row>
                 <Col xs={0}
                     sm={0}
-                    md={1}
-                    lg={2}>
+                    md={0}
+                    lg={1}>
                 </Col>
                 <Col 
-                    xs={12}
-                    sm={12}
-                    md={2}
-                    lg={2}
-                    style={{color:"white",overflow:"hidden",textAlign:"center" }}
+                    xs={10}
+                    sm={10}
+                    md={4}
+                    lg={3}
+                    
+                    style={{color:"white",textAlign:"center" }}
                     className="align-self-center"
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",maxWidth:"300px"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                        User Profile
                        </Card.Header>
@@ -54,21 +55,17 @@ class About extends Component
                     xs={10}
                     sm={10}
                     md={4}
-                    lg={2}
+                    lg={3}
                     style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                             <i className="fa fa-info"></i> Information
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text style={{marginLeft:"10px"}}>
-                           <p style={{fontSize:"12px"}}><b>Name</b>: Abuzar</p>
-                           <p style={{fontSize:"12px"}}><b>Degree Pursuing </b>: BS(CS)</p>
-                           <p style={{fontSize:"12px"}}><b>Country </b>: Pakistan</p>
-                           <p style={{fontSize:"12px"}}><b>Home City </b>: Gujrawala</p>
-                           <p style={{fontSize:"12px"}}><b>Current City</b>: Islamabad</p>
+                           <p style={{fontSize:"12px"}}><b>Name</b>: Abuzar <p style={{fontSize:"12px"}}><b>Degree Pursuing </b>: BS(CS)                           <p style={{fontSize:"12px"}}><b>Country </b>: Pakistan <p style={{fontSize:"12px"}}><b>Home City </b>: Gujrawala <p style={{fontSize:"12px"}}><b>Current City</b>: Islamabad</p> </p> </p> </p> </p>
                           </Card.Text>
                        </Card.Body>
                    </Card>
@@ -77,11 +74,11 @@ class About extends Component
                     xs={10}
                     sm={10}
                     md={4}
-                    lg={2}
+                    lg={3}
                     style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Work Experience
                        </Card.Header>
@@ -98,19 +95,19 @@ class About extends Component
                 <Col xs={0}
                     sm={0}
                     md={0}
-                    lg={2}>
+                    lg={1}>
                 </Col>
                 <Col 
-                    xs={9}
-                    sm={9}
-                    md={3}
-                    lg={2}
-                    style={{textAlign:"left",overflow:"hidden"}}
+                    xs={10}
+                    sm={10}
+                    md={4}
+                    lg={3}
+                    style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
-                           Education
+                           Tools
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
@@ -123,11 +120,11 @@ class About extends Component
                     xs={10}
                     sm={10}
                     md={4}
-                    lg={2}
+                    lg={3}
                     style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Education
                        </Card.Header>
@@ -143,11 +140,11 @@ class About extends Component
                     xs={10}
                     sm={10}
                     md={4}
-                    lg={2}
+                    lg={3}
                     style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Soft Skills
                        </Card.Header>
@@ -162,26 +159,40 @@ class About extends Component
             <Row>
                 <Col xs={0}
                     sm={0}
-                    md={1}
-                    lg={2}>
+                    md={0}
+                    lg={1}>
 
                 </Col>
+                
+            
                 <Col 
-                    xs={0}
-                    sm={0}
-                    md={2}
-                    lg={2}
+                    xs={10}
+                    sm={10}
+                    md={4}
+                    lg={3}
+                    style={{textAlign:'left',overflow:"hidden"}}
+                    className="align-self-center"
                 >
+                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
+                       <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
+                            <i className="fa fa-info"></i> Technical Skills
+                       </Card.Header>
+                       <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
+                           <Card.Text style={{marginLeft:"10px"}}>
+                           <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Data Analysis <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Multiple Programming Languages <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Project-Management <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Databases expert(Oracle,MongoDB Cloud Atlas) </p> </p></p></p>
+                          </Card.Text>
+                       </Card.Body>
+                   </Card>
                 </Col>
                 <Col 
                     xs={10}
                     sm={10}
                     md={4}
-                    lg={2}
+                    lg={3}
                     style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Hobbies
                        </Card.Header>
@@ -196,66 +207,17 @@ class About extends Component
                     xs={10}
                     sm={10}
                     md={4}
-                    lg={2}
+                    lg={3}
                     style={{textAlign:'left',overflow:"hidden"}}
                     className="align-self-center"
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"260px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Areas of Expertise
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
                            <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Machine Learning /Deep Learning <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Web-Development <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Graphics Designer <p style={{fontSize:"12px"}}> <i className="fa fa-certificate"></i> Game Development </p> </p> </p> </p>
-                          </Card.Text>
-                       </Card.Body>
-                   </Card>
-                </Col>
-            </Row>
-            <Row>
-                <Col 
-                    xs={0}
-                    sm={0}
-                    md={3}
-                    lg={4}
-                >
-                </Col>
-                <Col 
-                    xs={10}
-                    sm={10}
-                    md={4}
-                    lg={2}
-                    style={{textAlign:'left',overflow:"hidden"}}
-                    className="align-self-center"
-                >
-                <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
-                       <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
-                           Current Job Status
-                       </Card.Header>
-                       <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
-                           <Card.Text>
-                           <p style={{fontSize:"12px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
-Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
-                          </Card.Text>
-                       </Card.Body>
-                   </Card>
-                </Col>
-                <Col 
-                    xs={10}
-                    sm={10}
-                    md={4}
-                    lg={2}
-                    style={{textAlign:'left',overflow:"hidden"}}
-                    className="align-self-center"
-                >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
-                       <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
-                           Current Job Status
-                       </Card.Header>
-                       <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
-                           <Card.Text>
-                           <p style={{fontSize:"12px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
-Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
                           </Card.Text>
                        </Card.Body>
                    </Card>
@@ -269,8 +231,6 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             </Row>
             <Row>
                 <br />
-                <br />
-                <br />
             </Row>
         </Container>
         <Container style={{backgroundColor:"darkgrey"}} fluid>
@@ -281,14 +241,13 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                  <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                  <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"320px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Future Vision
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <p style={{fontSize:"12px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
-Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
+                           <p style={{fontSize:"12px"}}>fields of Datascience significantly grew in the past few years and it will grow even more.My aim is to become one datascience researcher who knows several ways to understand one simple problem and also i want to sharpen my mind to be able to understand others knowledge to take my base from them and extend those researches.I do not aim on making progress on my own but want to be dependable.I want to appreciate other researches and if i could i would extend those researhes and make them basis of my researches.I want to grow professionally and socially and hope to build an environment where people share all the stuff related to Datascience and eager to devote their life for the sake of Datascience and for the sake of our future generations.Datascience can help us make world a better place if and only if it is used on the right way.So i want to make sure that it goes onto right and good path. </p>
                           </Card.Text>
                        </Card.Body>
                    </Card>
@@ -299,14 +258,13 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                  <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                  <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"320px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Profile Summary
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <p style={{fontSize:"12px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
-Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
+                           <p style={{fontSize:"12px"}}>Abuzar is a Datascience enthusiast who was born in gujranwala and currently lives in Islamabad in order to pursue his degree of Bachelors in Computer Science.His hobbies include Gaming, Travelling, Graphics Designing and abuzar have soft skills of effective communication, Team work, Problem solving.His expertise include Web and Mobile applications development,Machine learning, Game Development.Abuzar is technically skilled in databases and multiple programming languages , Web development frameworks and libraries and Skilled in Project managment.Abuzar is highly skilled in web-development,mobile applications development Hybrid applications development.Abuzar spent some time gaining experience within University,Like Teaching Assistant for Operating Systems and Officer Buddy at National University Computing Society.Abuzar is eager to learn different datascience paradigms and he aims to become researcher in this field who will devote his life learning and making this world a better place with his research.</p>
                           </Card.Text>
                        </Card.Body>
                    </Card>
@@ -317,14 +275,13 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                   <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                   <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"320px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Current Job Status
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <p style={{fontSize:"12px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
-Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
+                           <p style={{fontSize:"12px"}}>Abuzar is currently unemployed and seeking opportunities for internship - paid or unpaid - in order gain experience and after Completing the gradution abuzar aims to work in research lab while learning for his Masters and Phd studies.But before stepping onto masters and phd studies,abuzar seeks job opportunities for the sake of gaining experience </p>
                           </Card.Text>
                        </Card.Body>
                    </Card>
@@ -332,8 +289,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             </Row>
             <Row>
                 <br />
-                <br />
-                <br />
+                
             </Row>
         </Container>
         <Container style={{backgroundColor:"darkgrey"}} fluid>
@@ -342,8 +298,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             </Row>
             <Row>
                 <br />
-                <br />
-                <br />
+               
             </Row>
         </Container>
         <Container style={{backgroundColor:"darkgrey"}} fluid>
@@ -354,7 +309,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"235px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Feedback and Reviews
                        </Card.Header>
@@ -372,7 +327,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"235px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Personal Links
                        </Card.Header>
@@ -391,14 +346,13 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
                 md={4}
                 lg={4}
                 >
-                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",marginBottom:"20px",minHeight:"235px"}}>
                        <Card.Header style={{backgroundColor:"#161C27",height:"40px",color:"white"}}>
                            Contact Information
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                        <Card.Text>
-                           <p style={{fontSize:"12px"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget auctor eros, at dapibus orci. Aliquam ornare odio ac magna porttitor, eu tincidunt mi accumsan. Praesent fringilla massa pellentesque elit fermentum tincidunt. Aenean non justo et neque vulputate lobortis quis vel nunc. Nullam a blandit sapien, sed rhoncus odio. Vestibulum vel ex dictum, dictum nisi at, iaculis sapien. In lacinia fermentum imperdiet.
-Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla sollicitudin mauris in est feugiat porta. In nec nisi semper, bibendum sem quis, ornare dolor. Nulla a erat eros. Ut at orci varius, pretium mauris ac, ultricies dui</p>
+                           <p style={{fontSize:"12px",textAlign:"left",marginLeft:"40px",marginTop:"20px"}}>Mobile No. : +92 316 7815 023 <p style={{fontSize:"12px"}}>Mobile No. : +92 305 6243 600 <p style={{fontSize:"12px"}}>Mobile No. : +92 316 7856 321 <p style={{fontSize:"12px"}}>Email : abuzar.m7266@gmail.com <p style={{fontSize:"12px"}}>Instagram : @abzuar._123</p></p></p></p> </p>
                           </Card.Text>
                        </Card.Body>
                    </Card>
@@ -406,8 +360,7 @@ Phasellus quis magna tellus. Quisque vulputate vel neque quis consequat. Nulla s
             </Row>
             <Row>
                 <br />
-                <br />
-                <br />
+                
             </Row>
         </Container>
     </>);
