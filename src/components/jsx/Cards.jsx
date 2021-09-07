@@ -11,6 +11,7 @@ import { Container,Row,Col } from 'react-bootstrap';
 import { Image } from 'react-bootstrap';
 import { responsive2 } from "./CardSlider";
 import Carousel from "react-multi-carousel";
+import { Link } from 'react-router-dom';
 class Cards extends Component{
   constructor(props)
     {
@@ -85,22 +86,29 @@ return (<>
                 </Modal>
               </Col>
           </Container>
-  <div>
-  <div className="card card-outer">
-  <img className="card-img-top card-img" src={CardData.image.default} alt="Card image cap"/>
-  <div className="card-body">
-  <h5 className="card-title">{CardData.title}</h5>
-  <div id={CardData.Id}>
-  <p className="card-text text-flow" style={{fontSize:"12px",textAlign:"left"}}>{CardData.text}</p>
-    </div>
-    <a href="#" className="btn card-btn" onClick={() => this.handleModalShowHide()}> <i className="fas fa-eye mr-3"> </i> Show More</a>
-    <a href="#" className="btn btn-sm" style={{color:"grey",marginTop:"30px"}}> <i className="fas fa-edit"> </i></a>
-    <a href="#" className="btn btn-sm" style={{color:"grey",marginTop:"30px"}}> <i className="fas fa-times"> </i></a>
-  </div>
-  </div>
-  </div>
+      <div>
+          <div className="card card-outer">
+          <Link className="Link-Style-2" to={`/Post/${CardData.PId}`}>
+            <img className="card-img-top card-img" src={CardData.image.default} alt="Card image cap"/>
+            <div className="card-body">
+            <h5 className="card-title head-flow" style={{fontSize:"14px",height:"20px"}}>{CardData.title}</h5>
+            <div id={CardData.PId}>
+              <p className="card-text text-flow" style={{fontSize:"11px",textAlign:"left",height:"95px"}}>{CardData.text}</p>
+            </div>
+            </div>
+          </Link>
+          <div className="card-footer" style={{height:"60px"}}>
+          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-edit"> </i></Link>
+          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-times"> </i></Link>
+          </div>
+          </div>
+      </div>
   </div>
         </>)
     }
 }
+{/*<div className="card-footer">
+          <a href="#" className="btn btn-sm" style={{color:"grey"}}> <i className="fas fa-edit"> </i></a>
+          <a href="#" className="btn btn-sm" style={{color:"grey"}}> <i className="fas fa-times"> </i></a>
+        </div>*/}
 export default Cards;

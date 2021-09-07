@@ -12,10 +12,9 @@
     min-width: 285px;
     background-color:#1C2331;
     color:white;
-    box-shadow: 2px 2px 10px black;
 }
 .card-outer:hover{
-    box-shadow: 20px 20px 80px black;
+    box-shadow: 4px 5px 5px black;
 }
 
 .card-img
@@ -45,6 +44,17 @@
 
 .text-flow 
 {
+    color:grey;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* number of lines to show */
+    -webkit-box-orient: vertical;
+}
+.head-flow 
+{
+    color:white;
+    opacity:80%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

@@ -15,7 +15,9 @@ import { CloseButton } from 'react-bootstrap';
 import { DropdownButton,Dropdown } from "react-bootstrap";
 import { responsive } from "../../components/jsx/CardSlider";
 import Carousel from "react-multi-carousel";
-
+import axios from 'axios';
+import { useEffect } from 'react';
+import NavBar from '../../components/jsx/NavBar';
 const mapStateToProps = state => {
     return {
       projects:state.projects
@@ -24,7 +26,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => 
 ({
-    addProject: (userid,Title, Image, Text , Type , Duration) => dispatch(addProject(userid,Title, Image, Text , Type , Duration))
+    addProject: (Pid,Title, Image, Text , Type , Duration) => dispatch(addProject(Pid,Title, Image, Text , Type , Duration))
     ,fetchProjects: () => { dispatch(fetchProjects())}
 });
 
@@ -41,13 +43,12 @@ class Home extends Component
     handelDropDown = (e)=> {
         this.setState({ dropDown: e })
     }
-    handleAddProjectForm() 
-    {
+    handleAddProjectForm() {
             this.setState({ HideForm: !this.state.HideForm })
     }
     componentDidMount() 
     {
-        this.props.fetchProjects();
+            this.props.fetchProjects();
     }
     render()
     { 
@@ -55,6 +56,7 @@ class Home extends Component
     console.log(Data);
     return (<>
     <div>
+    <NavBar/>
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>
         <div className="container" >
@@ -172,6 +174,7 @@ class Home extends Component
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Web-Development Projects</h1>
         </div>
     </div>
+    <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
     <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
@@ -183,11 +186,13 @@ class Home extends Component
             })
         }
     </Carousel>
+    </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Data Science Projects</h1>
         </div>
     </div>
+    <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
     <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
@@ -199,11 +204,13 @@ class Home extends Component
             })
         }
     </Carousel>
+    </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Ideation Block</h1>
         </div>
     </div>
+    <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
     <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
@@ -213,33 +220,9 @@ class Home extends Component
                 </div>
                 );
             })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
-        {
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
         }
     </Carousel>
+    </div>
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>

@@ -4,11 +4,13 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { Card,Dropdown,Form,DropdownButton } from 'react-bootstrap';
 import imgs from '../../images/myPic.jpg';
 import { Image } from 'react-bootstrap'; 
+import NavBar from '../../components/jsx/NavBar';
 class Contact extends Component
 {
   render()
   {
     return (<>
+    <NavBar/>
        <Container fluid>
             <Row>
               <br /><br /><br />

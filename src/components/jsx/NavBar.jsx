@@ -7,6 +7,7 @@ import {InputGroup,FormControl} from 'react-bootstrap';
 import { CloseButton } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Col,Row } from 'react-bootstrap';
+import '../css/styles.css';
 class NavBar extends Component
 {
   constructor(props)
@@ -119,21 +120,21 @@ class NavBar extends Component
                     xs={12}
                     sm={12}
                     md={12}
-                    lg={3}
-                    style={{margin:"10px",color:"#6351CE"}}>
-                    <NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./" onClick={()=>{this.handleActiveClass("Home")}}>{(this.state.activeClass=="Home")?<div style={{textDecoration: 'none' ,color:"white",opacity:"85%",textShadow:"5px 5px 5px black"}}>Home</div>:<div style={{textDecoration: 'none' ,color:"white",opacity:"60%"}}>Home</div>} </NavLink></Col>
+                    lg={3}h
+                    style={{margin:"10px"}}>
+                    <NavLink activeClassName="is-active" className="Link-Style" exact={true}  to="./" > Home </NavLink></Col>
                     <Col
                     xs={12}
                     sm={12}
                     md={12}
                     lg={3}
-                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./about" onClick={()=>{this.handleActiveClass("About")}}>{(this.state.activeClass=="About")?<div style={{textDecoration: 'none' ,color:"white",opacity:"85%",textShadow:"5px 5px 5px black"}}>About</div>:<div style={{textDecoration: 'none' ,color:"white",opacity:"60%"}}>About</div>} </NavLink></Col>
+                    style={{margin:"10px"}}><NavLink  className="Link-Style" activeClassName="is-active" exact={true} to="./about" > About </NavLink></Col>
                     <Col
                     xs={12}
                     sm={12}
                     md={12}
                     lg={3}
-                    style={{margin:"10px",color:"#6351CE"}}><NavLink style={{ textDecoration: 'none' ,color:"white",opacity:"60%",verticalAlign: "text-top"}} to="./contact" onClick={()=>{this.handleActiveClass("Contact")}}>{(this.state.activeClass=="Contact")?<div style={{textDecoration: 'none' ,color:"white",opacity:"85%",textShadow:"5px 5px 5px black"}}>Contact</div>:<div style={{textDecoration: 'none' ,color:"white",opacity:"60%"}}>Contact</div>} </NavLink></Col>
+                    style={{margin:"10px"}}><NavLink  className="Link-Style" activeClassName="is-active" exact={true} to="./contact" > Contact </NavLink></Col>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>

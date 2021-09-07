@@ -5,6 +5,7 @@ import NavBar from '../../components/jsx/NavBar';
 import Home from './home';
 import About from './about';
 import Contact from './contact';
+import PostDetail from './PostDetails';
 import Footer from '../../components/jsx/Footer';
 
 import { Route, Switch } from 'react-router';
@@ -17,11 +18,11 @@ class App extends Component{
     {
     return (<>  
     <Provider store={store}>
-    <NavBar/>
     <Switch>
-    <Route exact path="/" component={() => <Home/>}/>
-    <Route exact path="/about" component={() => <About/>}/>
-    <Route exact path="/contact" component={() => <Contact/>}/>
+    <Route exact path="/" exact={true} component={() => <Home/>}/>
+    <Route exact path="/Post/:id" render={(props) => <PostDetail {...props} />}/>
+    <Route exact path="/about" exact={true} component={() => <About/>}/>
+    <Route exact path="/contact" exact={true} component={() => <Contact/>}/>
     <Redirect to="/"/>
     </Switch>
     <Footer/>

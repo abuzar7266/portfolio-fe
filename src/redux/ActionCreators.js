@@ -1,10 +1,10 @@
 import * as ActionTypes from './ActionTypes';
 import { PROJECTS } from '../shared/Projects';
-export const addProject = (userid,Title, Image, Text , Type , Duration) => ({
+export const addProject = (PId,Title, Image, Text , Type , Duration) => ({
     type: ActionTypes.ADD_PROJECTS,
     payload: 
     {
-        userId:userid,
+        pId:PId,
         title:Title,
         image:Image,
         text:Text,

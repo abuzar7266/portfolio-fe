@@ -8,10 +8,62 @@ import imgs from '../../images/myPic.jpg';
 import {Card} from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import '../css/about.css';
+import { Modal } from 'react-bootstrap';
+import NavBar from '../../components/jsx/NavBar';
 class About extends Component
 {   
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            HideResMode:false,
+            HideCertMode:false
+        }
+    }
+    handleResumeUpload(){
+        this.setState({HideResMode:!this.state.HideResMode})
+    }
+    handleCertUpload(){
+        this.setState({HideCertMode:!this.state.HideCertMode})
+    }
     render(){
     return (<>
+    <NavBar/>
+    <div className="container-fluid" style={{alignContent:"center"}}>
+    <Modal className="Form-Modal" show={this.state.HideResMode} style={{maxWidth:"380px",textAlign:"center"}}>
+                    <Card style={{boxShadow:"5px 5px 10px black",maxWidth:"400px"}}>
+                       <Card.Header style={{backgroundColor:"#161C27",height:"45px",color:"white"}}>
+                       <div className="row">
+                       <div class="col-10">
+                                Upload Resume
+                       </div>
+                       <div class="col-1">
+                       <span style={{color:"grey",backgroundColor:"transparent",textDecoration:"none",cursor:"pointer",marginLeft:"15px"}} onClick={() => this.handleResumeUpload()}><i class="far fa-times-circle"></i></span>
+                        </div>
+                       </div>
+                       </Card.Header>
+                       <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
+                           <Card.Text>
+                           <form>
+                        <div class="form-group row" style={{marginBottom:"10px"}}>
+                            <div class="col-1">
+                                <input
+                                    type="file"
+                                    id="inputGroupFile01"
+                                    aria-describedby="inputGroupFileAddon01"
+                                    />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" style={{margin:"10px",boxShadow:"1px 1px 10px black"}} onClick={() => this.handleResumeUpload()}> Cancel </button>
+                            <button type="submit" class="btn btn-primary btn-sm ml-1" style={{margin:"10px",boxShadow:"1px 1px 10px black"}}> Save </button>
+                        </div>
+                    </form>
+                          </Card.Text>
+                       </Card.Body>
+                   </Card>
+    </Modal>
+    </div>
     <div style={{backgroundColor:"darkgrey"}}>
     <Container style={{backgroundColor:"darkgrey"}} fluid>
             <Row>
@@ -333,8 +385,8 @@ class About extends Component
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <Button variant="outline-light m-2">View Resume</Button><Button variant="outline-light m-2">Upload Resume</Button><br />
-                            <Button variant="outline-light m-2">View Certificates</Button><Button variant="outline-light m-2">Upload Certificates</Button><br />
+                           <Button variant="outline-light m-2">View Resume</Button><Button onClick={() => this.handleResumeUpload()} variant="outline-light m-2">Upload Resume</Button><br />
+                            <Button variant="outline-light m-2">View Certificates</Button><Button onClick={() => this.handleCertUpload()} variant="outline-light m-2">Upload Certificates</Button><br />
                             <Button variant="outline-light m-2"> Media Links </Button><Button variant="outline-light m-2">Add Media Links</Button>
                           </Card.Text>
                        </Card.Body>
