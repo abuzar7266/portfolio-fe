@@ -91,8 +91,8 @@ return (<>
           <Link className="Link-Style-2" to={`/Post/${CardData.PId}`}>
             <img className="card-img-top card-img" src={CardData.image.default} alt="Card image cap"/>
             <div className="card-body">
-            <h5 className="card-title head-flow" style={{fontSize:"14px",height:"20px"}}>{CardData.title}</h5>
             <div id={CardData.PId}>
+            <h5 className="card-title head-flow" style={{fontSize:"14px",height:"20px"}}>{CardData.title}</h5>
               <p className="card-text text-flow" style={{fontSize:"11px",textAlign:"left",height:"95px"}}>{CardData.text}</p>
             </div>
             </div>

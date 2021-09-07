@@ -51,11 +51,11 @@
     display: -webkit-box;
     -webkit-line-clamp: 7; /* number of lines to show */
     -webkit-box-orient: vertical;
+    text-decoration: none;
 }
 .head-flow 
 {
     color:white;
-    opacity:80%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
