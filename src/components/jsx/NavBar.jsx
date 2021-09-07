@@ -122,19 +122,19 @@ class NavBar extends Component
                     md={12}
                     lg={3}h
                     style={{margin:"10px"}}>
-                    <NavLink activeClassName="is-active" className="Link-Style" exact={true}  to="./" > Home </NavLink></Col>
+                    <NavLink activeClassName="is-active" className="Link-Style" style={{color:"white",textDecoration:"none"}} exact={true}  to="./" > Home </NavLink></Col>
                     <Col
                     xs={12}
                     sm={12}
                     md={12}
                     lg={3}
-                    style={{margin:"10px"}}><NavLink  className="Link-Style" activeClassName="is-active" exact={true} to="./about" > About </NavLink></Col>
+                    style={{margin:"10px"}}><NavLink  className="Link-Style" activeClassName="is-active" style={{color:"white",textDecoration:"none"}} exact={true} to="./about" > About </NavLink></Col>
                     <Col
                     xs={12}
                     sm={12}
                     md={12}
                     lg={3}
-                    style={{margin:"10px"}}><NavLink  className="Link-Style" activeClassName="is-active" exact={true} to="./contact" > Contact </NavLink></Col>
+                    style={{margin:"10px"}}><NavLink  className="Link-Style" activeClassName="is-active" style={{color:"white",textDecoration:"none"}} exact={true} to="./contact" > Contact </NavLink></Col>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
