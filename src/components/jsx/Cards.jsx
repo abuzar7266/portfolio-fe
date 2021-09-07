@@ -87,7 +87,7 @@ return (<>
               </Col>
           </Container>
       <div>
-          <div className="card card-outer">
+          <div className="card card-outer" >
           <Link className="Link-Style-2" to={`/Post/${CardData.PId}`}>
             <img className="card-img-top card-img" src={CardData.image.default} alt="Card image cap"/>
             <div className="card-body">
@@ -98,8 +98,8 @@ return (<>
             </div>
           </Link>
           <div className="card-footer" style={{height:"60px"}}>
-          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-edit"> </i></Link>
-          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-times"> </i></Link>
+          <Link to="#" className="btn btn-sm Post-Icons" style={{color:"grey",height:"65px"}}> <i className="fas fa-edit"> </i></Link>
+          <Link to="#" className="btn btn-sm Post-Icons" style={{color:"grey",height:"65px"}}> <i className="fas fa-times"> </i></Link>
           </div>
           </div>
       </div>

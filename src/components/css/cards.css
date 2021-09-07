@@ -12,9 +12,10 @@
     min-width: 285px;
     background-color:#1C2331;
     color:white;
+    box-shadow: 2px 2px 10px black;
 }
 .card-outer:hover{
-    box-shadow: 4px 5px 5px black;
+    box-shadow: 20px 20px 80px black;
 }
 
 .card-img

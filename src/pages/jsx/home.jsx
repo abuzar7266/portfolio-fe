@@ -156,7 +156,6 @@ class Home extends Component
         </div>
     </div>
     
-    <div className="row " style={{backgroundColor:"grey",alignText:"center"}}>
     <Carousel responsive={responsive}>
         {
             Data.map((data,idx)=>
@@ -168,7 +167,6 @@ class Home extends Component
             })
         }
     </Carousel>
-    </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Web-Development Projects</h1>
