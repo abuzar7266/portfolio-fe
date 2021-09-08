@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Post from '../../components/jsx/Cards';
 import { Card } from "react-bootstrap";
 import '../css/home.css';
+import '../css/styles.css';
 import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { addProject } from "../../redux/ActionCreators";
@@ -55,7 +56,7 @@ class Home extends Component
     const Data = this.props.projects.projects;
     console.log(Data);
     return (<>
-    <div>
+    <div className="Main-style">
     <NavBar/>
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>

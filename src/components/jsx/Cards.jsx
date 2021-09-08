@@ -98,8 +98,8 @@ return (<>
             </div>
           </Link>
           <div className="card-footer" style={{height:"60px"}}>
-          <Link to="#" className="btn btn-sm Post-Icons" style={{color:"grey",height:"65px"}}> <i className="fas fa-edit"> </i></Link>
-          <Link to="#" className="btn btn-sm Post-Icons" style={{color:"grey",height:"65px"}}> <i className="fas fa-times"> </i></Link>
+          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-edit"> </i></Link>
+          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-times"> </i></Link>
           </div>
           </div>
       </div>
@@ -107,8 +107,4 @@ return (<>
         </>)
     }
 }
-{/*<div className="card-footer">
-          <a href="#" className="btn btn-sm" style={{color:"grey"}}> <i className="fas fa-edit"> </i></a>
-          <a href="#" className="btn btn-sm" style={{color:"grey"}}> <i className="fas fa-times"> </i></a>
-        </div>*/}
 export default Cards;

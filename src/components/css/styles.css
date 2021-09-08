@@ -176,7 +176,10 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
 }
 .Link-Style{
-  
+  color:white;
+  opacity:70%;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
 }
 .Post-Icons{
   color : grey;
