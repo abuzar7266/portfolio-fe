@@ -7,7 +7,8 @@ import { fetchProjects } from "../../redux/ActionCreators";
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
 import '../css/styles.css';
-import { Container,Col,Row } from 'react-bootstrap';
+import { responsive2 } from '../../components/jsx/CardSlider';
+import { Container,Col,Row,Image } from 'react-bootstrap';
 const mapStateToProps = state => {
     return {
       projects:state.projects
@@ -16,7 +17,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => 
 ({
-    addProject: (Pid,Title, Image, Text , Type , Duration) => dispatch(addProject(Pid,Title, Image, Text , Type , Duration))
+    addProject: (Pid,Title, Image, files , Text , Type , Duration) => dispatch(addProject(Pid,Title, Image,files, Text , Type , Duration))
     ,fetchProjects: () => { dispatch(fetchProjects())}
 });
 class PostDetail extends Component
@@ -37,13 +38,61 @@ class PostDetail extends Component
         return(<>
         <Container fluid>
             <Row>
+                <br /><br />
+            </Row>
+            <Row>
+                <Col
+                    xs={0}
+                    sm={0}
+                    md={3}
+                    lg={3}
+                >
+                </Col>
                 <Col
                     xs={12}
                     sm={12}
-                    md={12}
-                    lg={12}
+                    md={6}
+                    lg={6}
                 >
-                <p>{Post[0].title}</p>
+                <p style={{border:"1px solid black",color:"black",backgroundColor:"white",borderRadius:"0%",boxShadow:"10px 0px 10px black"}}>{Post[0].title}</p>
+                </Col>
+            </Row>
+            <Row style={{backgroundColor:"white",padding:"20px"}}>
+                <Col
+                    xs={0}
+                    sm={1}
+                    md={1}
+                    lg={3}
+                >
+
+                </Col>
+                <Col
+                    xs={12}
+                    sm={10}
+                    md={10}
+                    lg={6}
+                >
+                <Carousel responsive={responsive2}>
+                        <div>
+                                <Image style={{height:"370px"}} className="img-thumbnail bg-dark" src={Post[0].image.default} fluid/>
+                        </div>
+                    {
+                        Post[0].files.map((data,idx)=>
+                        {
+                            return (<div>
+                                <Image style={{height:"370px"}} className="img-thumbnail bg-dark" src={data.default} fluid/>
+                            </div>);
+                        })
+                    }
+                </Carousel>
+                </Col>
+            </Row>
+            <Row>
+                <br />
+            </Row>
+            <Row>
+                <Col>
+                    <p>{Post[0].text}</p>
                 </Col>
             </Row>
         </Container>
