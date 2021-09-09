@@ -97,10 +97,10 @@ return (<>
             </div>
             </div>
           </Link>
-          <div className="card-footer" style={{height:"60px"}}>
+          { this.props.Access=="public" && <div className="card-footer" style={{height:"60px"}}>
           <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-edit"> </i></Link>
           <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-times"> </i></Link>
-          </div>
+          </div> }
           </div>
       </div>
   </div>

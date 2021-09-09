@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => 
 ({
-    addProject: (Pid,Title, Image, files , Text , Type , Duration) => dispatch(addProject(Pid,Title, Image,files, Text , Type , Duration))
+    addProject: (Pid,title, Image, files , Text , Type , Duration) => dispatch(addProject(Pid,title, Image,files, Text , Type , Duration))
     ,fetchProjects: () => { dispatch(fetchProjects())}
 });
 class PostDetail extends Component
@@ -38,7 +38,13 @@ class PostDetail extends Component
         return(<>
         <Container fluid>
             <Row>
-                <br /><br />
+                <br />
+            </Row>
+            <Row>
+                <Link to="/" style={{textAlign:"left",marginLeft:"55px",color:"black"}}><i className="fa fa-close"></i></Link>
+            </Row>
+            <Row>
+                <br />
             </Row>
             <Row>
                 <Col

@@ -1,5 +1,6 @@
 import * as ActionTypes from './ActionTypes';
 import { PROJECTS } from '../shared/Projects';
+import axios from 'axios';
 export const addProject = (PId,Title, Image,Files, Text , Type , Duration) => ({
     type: ActionTypes.ADD_PROJECTS,
     payload: 
@@ -20,7 +21,23 @@ export const fetchProjects = () => (dispatch) => {
     dispatch(projectsLoading(true));
 
     setTimeout(() => {
-        dispatch(addProjects(PROJECTS));
+            dispatch(addProjects(PROJECTS))
+    }, 2000);
+}
+export const fetchUser = () => (dispatch) => {
+
+    dispatch(userLoading(true));
+
+    setTimeout(() => {
+            const config = {
+                headers:{
+                    Authorization: 'Bearer ' + localStorage.getItem('token')
+                }
+            }
+            axios.get('users',config)
+            .then(res=>{
+                dispatch(addUser(res));
+            });
     }, 2000);
 }
 
@@ -36,4 +53,14 @@ export const projectsFailed = (errmess) => ({
 export const addProjects = (projects) => ({
     type: ActionTypes.ADD_PROJECTS,
     payload: projects
+});
+
+
+export const addUser = (user)=>({
+    type:ActionTypes.ADD_LOGIN,
+    payload:user
+});
+
+export const userLoading = ()=>({
+    type: ActionTypes.LOGIN_LOADING
 });

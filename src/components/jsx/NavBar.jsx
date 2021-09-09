@@ -8,6 +8,8 @@ import { CloseButton } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Col,Row } from 'react-bootstrap';
 import '../css/styles.css';
+import axios from 'axios';
+import { url } from '../../data';
 class NavBar extends Component
 {
   constructor(props)
@@ -27,6 +29,17 @@ class NavBar extends Component
   handleModalShowHide(u,p) 
   {
         this.setState({ showHide: !this.state.showHide,username:u,password:p })
+  }
+  handleSubmit = e =>{
+      e.preventDefault();
+      const data = {
+          username: this.username,
+          password:this.password
+      }
+      axios.post( 'users/login',data)
+      .then(res=>{
+          localStorage.setItem('token',res.data.token);
+      })
   }
   render()
   {
@@ -49,7 +62,7 @@ class NavBar extends Component
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <form>
+                           <form onSubmit={this.handleSubmit} method="post" action="\">
                                 <div class="form-row">
                                     <div class="form-group col-sm-10">
                                         <label class="sr-only" for="exampleInputEmail3">username</label>
@@ -60,6 +73,8 @@ class NavBar extends Component
                                             aria-label="username"
                                             aria-describedby="basic-addon1"
                                             value={this.state.username}
+                                            name="username"
+                                            onChange={e=>{ this.username = e.target.value}}
                                             required/>
                                         </InputGroup>
                                     </div>
@@ -74,6 +89,8 @@ class NavBar extends Component
                                             aria-label="Password"
                                             aria-describedby="basic-addon2"
                                             value={this.state.password}
+                                            name="password"
+                                            onChange={e=>{ this.password = e.target.value }}
                                             required/>
                                         </InputGroup>
                                     </div>
@@ -102,7 +119,7 @@ class NavBar extends Component
                             <div className="navbar-text" style={{alignText:"center",color:"white"}}>
                             <span class="navbar-text">
                                 <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
-                                <span class="fa fa-sign-in"></span> Login </a>
+                                <span class="fa fa-sign-in"></span> {this.props.status} </a>
                             </span>
             </div>
             </div>

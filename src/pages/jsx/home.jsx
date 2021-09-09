@@ -19,16 +19,21 @@ import Carousel from "react-multi-carousel";
 import axios from 'axios';
 import { useEffect } from 'react';
 import NavBar from '../../components/jsx/NavBar';
+import { addUser,fetchUser } from '../../redux/ActionCreators';
 const mapStateToProps = state => {
     return {
-      projects:state.projects
+      projects:state.projects,
+      user:state.user
     }
 }
 
 const mapDispatchToProps = dispatch => 
 ({
     addProject: (Pid,Title, Image, Text , Type , Duration) => dispatch(addProject(Pid,Title, Image, Text , Type , Duration))
-    ,fetchProjects: () => { dispatch(fetchProjects())}
+    ,fetchProjects: () => { dispatch(fetchProjects())},
+    addUser: (_id,firstname,lastname,username)=>dispatch(addUser(_id,firstname,lastname,username))
+    ,fetchUser:()=>{dispatch(fetchUser())}
+    
 });
 
 class Home extends Component
@@ -39,6 +44,12 @@ class Home extends Component
         this.state={
             HideForm:false,
             dropDown:"Select Type"
+        };
+        this.user={
+            id:"",
+            username:"",
+            firstname:"",
+            lastname:""
         }
     }
     handelDropDown = (e)=> {
@@ -50,14 +61,23 @@ class Home extends Component
     componentDidMount() 
     {
             this.props.fetchProjects();
+            this.props.fetchUser();
+    }
+    componentDidUpdate()
+    {
+            this.props.fetchUser();
     }
     render()
-    { 
+    {
     const Data = this.props.projects.projects;
-    console.log(Data);
+    let user = {data:{_id:""}};
+    if(this.props.user.user)
+    {
+        user = this.props.user.user;
+    }
     return (<>
     <div className="Main-style">
-    <NavBar/>
+    { user.data._id=="" ? <NavBar status="login"/>:  <NavBar status="logout"/>}
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>
         <div className="container" >
@@ -148,7 +168,7 @@ class Home extends Component
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
             <div className="col-12" style={{paddingTop:"30px",paddingBottom:"30px"}}>
-            <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>{' '}
+            { !user.data._id && <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>}
             </div>
     </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -161,11 +181,20 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
+                if(user.data._id){
+                    return(<div className="offset-1">
+                    <Post Access="private" CardData={data}/>
+                    </div>
+                    );
+                }
+                else{
+                    return(<div className="offset-1">
+                    <Post Access="public" CardData={data}/>
+                    </div>
+                    );
+                }
             })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -177,11 +206,20 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
+                if(user.data._id){
+                    return(<div className="offset-1">
+                    <Post Access="private" CardData={data}/>
+                    </div>
+                    );
+                }
+                else{
+                    return(<div className="offset-1">
+                    <Post Access="public" CardData={data}/>
+                    </div>
+                    );
+                }
             })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -193,11 +231,20 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
+                if(user.data._id){
+                    return(<div className="offset-1">
+                    <Post Access="private" CardData={data}/>
+                    </div>
+                    );
+                }
+                else{
+                    return(<div className="offset-1">
+                    <Post Access="public" CardData={data}/>
+                    </div>
+                    );
+                }
             })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -209,36 +256,20 @@ class Home extends Component
         {
             Data.map((data,idx)=>
             {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
+                if(user.data._id){
+                    return(<div className="offset-1">
+                    <Post Access="private" CardData={data}/>
+                    </div>
+                    );
+                }
+                else{
+                    return(<div className="offset-1">
+                    <Post Access="public" CardData={data}/>
+                    </div>
+                    );
+                }
             })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }
-        {
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
-        }{
-            Data.map((data,idx)=>
-            {
-                return(<div className="offset-1">
-                <Post CardData={data}/>
-                </div>
-                );
-            })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"grey"}}>
