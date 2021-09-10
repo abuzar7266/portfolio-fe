@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container,Row,Col } from 'react-bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { Card,Dropdown,Form,DropdownButton } from 'react-bootstrap';
+import { Card,Form } from 'react-bootstrap';
 import imgs from '../../images/myPic.jpg';
 import { Image } from 'react-bootstrap'; 
 import NavBar from '../../components/jsx/NavBar';

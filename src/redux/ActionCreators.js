@@ -1,17 +1,11 @@
 import * as ActionTypes from './ActionTypes';
 import { PROJECTS } from '../shared/Projects';
 import axios from 'axios';
-export const addProject = (PId,Title, Image,Files, Text , Type , Duration) => ({
+export const addProject = (Files) => ({
     type: ActionTypes.ADD_PROJECTS,
     payload: 
     {
-        pId:PId,
-        title:Title,
-        image:Image,
-        files:Files,
-        text:Text,
-        type:Type,
-        duration:Duration
+        files:Files
     }
 });
 
@@ -21,8 +15,17 @@ export const fetchProjects = () => (dispatch) => {
     dispatch(projectsLoading(true));
 
     setTimeout(() => {
-            dispatch(addProjects(PROJECTS))
-    }, 2000);
+        const config = 
+        {
+            headers:{
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+        axios.get('project')
+        .then(projects=>{
+            dispatch(addProject(projects.data));
+        })
+    }, 10);
 }
 export const fetchUser = () => (dispatch) => {
 
@@ -38,7 +41,7 @@ export const fetchUser = () => (dispatch) => {
             .then(res=>{
                 dispatch(addUser(res));
             });
-    }, 2000);
+    }, 10);
 }
 
 export const projectsLoading = () => ({

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import NavBar from '../../components/jsx/NavBar';
 import Home from './home';
 import About from './about';
 import Contact from './contact';

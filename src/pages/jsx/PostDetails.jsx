@@ -22,9 +22,6 @@ const mapDispatchToProps = dispatch =>
 });
 class PostDetail extends Component
 {
-    constructor(props){
-        super(props);
-    }
     componentDidMount() 
     {
             this.props.fetchProjects();

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import '../css/styles.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
+import { Link } from 'react-router-dom';
 class Footer extends Component 
 {
     constructor(){
@@ -39,24 +39,24 @@ class Footer extends Component
       </div>
       
       <div>
-        <a href="" className="text-white me-4">
+        <Link to="" className="text-white me-4">
           <i className="fab fa-facebook-f"></i>
-        </a>
-        <a href="" className="text-white me-4">
+        </Link>
+        <Link to="" className="text-white me-4">
           <i className="fab fa-twitter"></i>
-        </a>
-        <a href="" className="text-white me-4">
+        </Link>
+        <Link to="" className="text-white me-4">
           <i className="fab fa-google"></i>
-        </a>
-        <a href="" className="text-white me-4">
+        </Link>
+        <Link to="" className="text-white me-4">
           <i className="fab fa-instagram"></i>
-        </a>
-        <a href="" className="text-white me-4">
+        </Link>
+        <Link to="" className="text-white me-4">
           <i className="fab fa-linkedin"></i>
-        </a>
-        <a href="" className="text-white me-4">
+        </Link>
+        <Link to="" className="text-white me-4">
           <i className="fab fa-github"></i>
-        </a>
+        </Link>
       </div>
     
     </section>
@@ -74,7 +74,7 @@ class Footer extends Component
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-            I've always wondered about the world and everything that has been created and I've always been curious about the different technologies in the world<a href="/about" style={{textDecoration:"none",color:"grey"}}>...See More</a>
+            I've always wondered about the world and everything that has been created and I've always been curious about the different technologies in the world<Link to="/about" style={{textDecoration:"none",color:"grey"}}>...See More</Link>
             </p>
           </div>
         
@@ -86,16 +86,16 @@ class Footer extends Component
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-              <a href="#!" className="text-white">Prediction Models</a>
+              <Link to="#!" className="text-white">Prediction Models</Link>
             </p>
             <p>
-              <a href="#!" className="text-white">Data Visualizations</a>
+              <Link to="#!" className="text-white">Data Visualizations</Link>
             </p>
             <p>
-              <a href="#!" className="text-white">Web-Development</a>
+              <Link to="#!" className="text-white">Web-Development</Link>
             </p>
             <p>
-              <a href="#!" className="text-white">Algorithms</a>
+              <Link to="#!" className="text-white">Algorithms</Link>
             </p>
           </div>
           
@@ -107,16 +107,16 @@ class Footer extends Component
                 style={{width: "60px", backgroundColor: "#7c4dff", height: "2px"}}
                 />
             <p>
-              <a href="#!" className="text-white">About</a>
+              <Link to="#!" className="text-white">About</Link>
             </p>
             <p>
-              <a href="#!" className="text-white">Make a Donation</a>
+              <Link to="#!" className="text-white">Make a Donation</Link>
             </p>
             <p>
-              <a href="#!" className="text-white">Place an Order</a>
+              <Link to="#!" className="text-white">Place an Order</Link>
             </p>
             <p>
-              <a href="#!" className="text-white">Help</a>
+              <Link to="#!" className="text-white">Help</Link>
             </p>
           </div>
           
@@ -142,8 +142,8 @@ class Footer extends Component
          className="text-center p-3"
          style={{backgroundColor: "rgba(0, 0, 0, 0.2)"}}>
       © 2020 Copyright:
-      <a className="text-white" href="https://mdbootstrap.com/"
-         > Portifolio.com</a>
+      <Link className="text-white" to="https://mdbootstrap.com/"
+         > Portifolio.com</Link>
     </div>
     
   </footer>

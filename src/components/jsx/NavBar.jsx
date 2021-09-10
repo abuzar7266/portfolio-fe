@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle";
-import { Button,Modal,Navbar,Container,Nav } from 'react-bootstrap';
+import { Modal,Navbar,Container,Nav } from 'react-bootstrap';
 import {InputGroup,FormControl} from 'react-bootstrap';
-import { CloseButton } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import { Col,Row } from 'react-bootstrap';
 import '../css/styles.css';
 import axios from 'axios';
-import { url } from '../../data';
+import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+import { Button } from 'react-bootstrap';
 class NavBar extends Component
 {
   constructor(props)
@@ -30,7 +31,7 @@ class NavBar extends Component
   {
         this.setState({ showHide: !this.state.showHide,username:u,password:p })
   }
-  handleSubmit = e =>{
+  handleSubmit = async (e) => {
       e.preventDefault();
       const data = {
           username: this.username,
@@ -40,6 +41,10 @@ class NavBar extends Component
       .then(res=>{
           localStorage.setItem('token',res.data.token);
       })
+      this.setState({ showHide: !this.state.showHide});
+  }
+  handleLogout = async () =>{
+      localStorage.removeItem('token');
   }
   render()
   {
@@ -62,7 +67,7 @@ class NavBar extends Component
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <form onSubmit={this.handleSubmit} method="post" action="\">
+                           <form onSubmit={this.handleSubmit} method="post" action="./">
                                 <div class="form-row">
                                     <div class="form-group col-sm-10">
                                         <label class="sr-only" for="exampleInputEmail3">username</label>
@@ -118,8 +123,9 @@ class NavBar extends Component
             <div className="order-lg-2 order-2">
                             <div className="navbar-text" style={{alignText:"center",color:"white"}}>
                             <span class="navbar-text">
-                                <a id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
-                                <span class="fa fa-sign-in"></span> {this.props.status} </a>
+                                {!(localStorage.getItem('token'))?<Link id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleModalShowHide()}>
+                                <span class="fa fa-sign-in"></span> Login </Link>:<Link id="loginClick" class="btn" style={{ textDecoration: 'none' ,color:"white",opacity:"80%"}} onClick={() => this.handleLogout()}>
+                                <span class="fa fa-sign-in"></span> Logout </Link>}
                             </span>
             </div>
             </div>
@@ -128,7 +134,7 @@ class NavBar extends Component
                 sm={10}
                 md={10}
                 lg={10}
-                style={{textAlign:"left"}}><a className="navbar-brand" style={{color:"white",margin:"10px"}} href="/"><img src={Logo.default} className="img-fluid" height="150" width="150"/></a>          
+                style={{textAlign:"left"}}><Link className="navbar-brand" style={{color:"white",margin:"10px"}} to="/"><img src={Logo.default} className="img-fluid" height="150" width="150"/></Link>          
             </Col></div>
             <div className="order-lg-5 order-0"><Navbar.Toggle aria-controls="responsive-navbar-nav" /></div>
             <Navbar.Collapse id="responsive-navbar-nav">

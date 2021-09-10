@@ -27,7 +27,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => 
+const mapDispatchToProps = dispatch => 
 ({
     addProject: (Pid,Title, Image, Text , Type , Duration) => dispatch(addProject(Pid,Title, Image, Text , Type , Duration))
     ,fetchProjects: () => { dispatch(fetchProjects())},
@@ -37,38 +37,36 @@ const mapDispatchToProps = (dispatch) =>
 
 class Home extends Component
 {
-    
     constructor(props)
     {
         super(props);
         this.state={
             HideForm:false,
-            dropDown:"Select Type",
-            files:[]
+            dropDown:"Select Type"
         }
     }
-    handelDropDown = (e) => {
+    handelDropDown = (e)=> {
         this.setState({ dropDown: e })
     }
     handleAddProjectForm() {
             this.setState({ HideForm: !this.state.HideForm })
     }
-    componentWillMount = async () =>
+    async componentDidMount() 
     {
             this.props.fetchProjects();
             this.props.fetchUser();
     }
     render()
     {
-        var files = this.props.projects.projects
+        const {files} = this.props.projects.projects;
         console.log(files);
         const user = {
-        _id:this.props.user.user.data._id,
-        username:this.props.user.user.data.username
-    };
+            _id:this.props.user.user.data._id,
+            username:this.props.user.user.data.username
+        };
     return (<>
     <div className="Main-style">
-    { !(localStorage.getItem('token')) ? <NavBar reload = {this.componentWillMount} status="login"/>:  <NavBar reload = {this.componentWillMount} status="logout"/>}
+    { user._id=="" ? <NavBar status="login"/>:  <NavBar status="logout"/>}
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>
         <div className="container" >
@@ -158,11 +156,8 @@ class Home extends Component
     {/*--------------------------------------------------------------*/}
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
-            { !(localStorage.getItem('token')) && <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
+            <div className="col-12" style={{paddingTop:"30px",paddingBottom:"30px"}}>
             { user._id && <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>}
-            </div> }
-            <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
-            <Button variant="dark" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={this.componentWillMount}>Refresh the Page</Button>
             </div>
     </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -175,7 +170,7 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if((localStorage.getItem('token'))){
+                if(user._id){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
@@ -199,7 +194,7 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if((localStorage.getItem('token'))){
+                if(user._id){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
@@ -211,7 +206,8 @@ class Home extends Component
                     </div>
                     );
                 }
-            })   
+            })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -223,7 +219,7 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if((localStorage.getItem('token'))){
+                if(user._id){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
@@ -235,7 +231,8 @@ class Home extends Component
                     </div>
                     );
                 }
-            })   
+            })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -247,25 +244,26 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if((localStorage.getItem('token'))){
-                    return(<div className="offset-1">
-                    <Post Access="public" CardData={data}/>
-                    </div>
-                    );
-                }
-                else{
+                if(user._id){
                     return(<div className="offset-1">
                     <Post Access="private" CardData={data}/>
                     </div>
                     );
                 }
-            })   
+                else{
+                    return(<div className="offset-1">
+                    <Post Access="public" CardData={data}/>
+                    </div>
+                    );
+                }
+            })
+            
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>
-    </div>
+    </div>}
     </div>
     </>);
     }
