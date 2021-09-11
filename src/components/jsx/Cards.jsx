@@ -12,6 +12,12 @@ import Carousel from "react-multi-carousel";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 const url = "http://localhost:3001/images/";
+const authAxios  =axios.create({
+  baseURL:"http://localhost:3001/",
+  headers:{
+      Authorization:`Bearer ${localStorage.getItem('token')}`
+  }
+});
 class Cards extends Component{
   constructor(props)
     {
@@ -24,6 +30,9 @@ class Cards extends Component{
     {
           this.setState({ showHide: !this.state.showHide })
     }
+    deleteApi = async (_id) =>{
+      const resp = await authAxios.delete(`project/${_id}`);
+    }
     render(){
         var {CardData} = this.props;
         const imgUrl = ("http://localhost:3001/images/" + CardData.imageFile);
@@ -35,14 +44,14 @@ return (<>
             <img className="card-img-top card-img" src={imgUrl} alt={CardData.title}/>
             <div className="card-body">
             <div id={CardData._id}>
-            <h5 className="card-title head-flow" style={{fontSize:"14px",height:"20px"}}>{CardData.title}</h5>
-              <p className="card-text text-flow" style={{fontSize:"11px",textAlign:"left",height:"95px"}}>{CardData.Text}</p>
+            <h5 className="card-title head-flow" style={{fontSize:"14px",height:"49px"}}>{CardData.title}</h5>
+              <p className="card-text text-flow" style={{fontSize:"11px",textAlign:"left",height:"100px"}}>{CardData.Text}</p>
             </div>
             </div>
           </Link>
-          { this.props.Access==="public" && <div className="card-footer" style={{height:"60px"}}>
-          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-edit"> </i></Link>
-          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px"}}> <i className="fas fa-times"> </i></Link>
+          { this.props.Access==="public" && <div className="card-footer">
+          <Link to="#" className="btn btn-sm Post-Icons" style={{height:"65px",marginBottom:"10px"}}> <i className="fas fa-edit"> </i></Link>
+          <Link to="#" onClick={()=>{ this.deleteApi(CardData._id);}} className="btn btn-sm Post-Icons" style={{height:"65px",marginBottom:"10px"}}> <i className="fas fa-times"> </i></Link>
           </div> }
 </div>
       </div>

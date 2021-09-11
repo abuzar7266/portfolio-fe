@@ -6,8 +6,8 @@
     border-style: outset;
     margin : 10px 10px 10px 10px;
     border-radius:30px;
-    max-height: 400px;
-    min-height: 400px;
+    max-height: 430px;
+    min-height: 430px;
     max-width: 285px;
     min-width: 285px;
     background-color:#1C2331;
@@ -57,8 +57,9 @@
 {
     color:white;
     overflow: hidden;
+    text-align: left;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-line-clamp: 3; /* number of lines to show */
     -webkit-box-orient: vertical;
 }

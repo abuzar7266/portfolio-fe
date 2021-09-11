@@ -9,29 +9,33 @@ import { Link } from 'react-router-dom';
 import '../css/styles.css';
 import { responsive2 } from '../../components/jsx/CardSlider';
 import { Container,Col,Row,Image } from 'react-bootstrap';
-const mapStateToProps = state => {
-    return {
-      projects:state.projects
+import axios from 'axios';
+const authAxios  =axios.create({
+    baseURL:"http://localhost:3001/",
+    headers:{
+        Authorization:`Bearer ${localStorage.getItem('token')}`
     }
-}
-
-const mapDispatchToProps = dispatch => 
-({
-    addProject: (Pid,title, Image, files , Text , Type , Duration) => dispatch(addProject(Pid,title, Image,files, Text , Type , Duration))
-    ,fetchProjects: () => { dispatch(fetchProjects())}
 });
 class PostDetail extends Component
 {
-    componentDidMount() 
+    constructor(props){
+        super();
+        this.state = {
+            Data:{
+                title:"",
+                _id:"",
+                imageFile:"",
+                Text:""
+            }
+        }
+    }
+    componentDidMount = async () => 
     {
-            this.props.fetchProjects();
+            const response = await axios.get(`project/${this.props.match.params.id}`);
+            this.setState({Data:response.data});
     }
     render()
     {
-            const Data = this.props.projects.projects;
-            const Post = Data.filter((el)=>{
-                return (el.PId===this.props.match.params.id);
-            })
         return(<>
         <Container fluid>
             <Row>
@@ -57,7 +61,7 @@ class PostDetail extends Component
                     md={6}
                     lg={6}
                 >
-                <p style={{border:"1px solid black",color:"black",backgroundColor:"white",borderRadius:"0%",boxShadow:"10px 0px 10px black"}}>{Post[0].title}</p>
+                <p style={{border:"1px solid black",color:"black",backgroundColor:"white",borderRadius:"0%",boxShadow:"10px 0px 10px black"}}>{this.state.Data.title}</p>
                 </Col>
             </Row>
             <Row style={{backgroundColor:"white",padding:"20px"}}>
@@ -75,19 +79,7 @@ class PostDetail extends Component
                     md={10}
                     lg={6}
                 >
-                <Carousel responsive={responsive2}>
-                        <div>
-                                <Image style={{height:"370px"}} className="img-thumbnail bg-dark" src={Post[0].image.default} fluid/>
-                        </div>
-                    {
-                        Post[0].files.map((data,idx)=>
-                        {
-                            return (<div>
-                                <Image style={{height:"370px"}} className="img-thumbnail bg-dark" src={data.default} fluid/>
-                            </div>);
-                        })
-                    }
-                </Carousel>
+                
                 </Col>
             </Row>
             <Row>
@@ -95,11 +87,11 @@ class PostDetail extends Component
             </Row>
             <Row>
                 <Col>
-                    <p>{Post[0].text}</p>
+                    {this.state.Data.Text}
                 </Col>
             </Row>
         </Container>
         </>);
     }
 };
-export default withRouter(connect(mapStateToProps,mapDispatchToProps)(PostDetail));
+export default PostDetail;

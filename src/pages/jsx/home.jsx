@@ -17,7 +17,7 @@ import { DropdownButton,Dropdown } from "react-bootstrap";
 import { responsive } from "../../components/jsx/CardSlider";
 import Carousel from "react-multi-carousel";
 import axios from 'axios';
-import { useEffect } from 'react';
+import { Link } from "react-router-dom";
 import NavBar from '../../components/jsx/NavBar';
 import { addUser,fetchUser } from '../../redux/ActionCreators';
 const mapStateToProps = state => {
@@ -34,7 +34,12 @@ const mapDispatchToProps = (dispatch) =>
     addUser: (_id,firstname,lastname,username)=>dispatch(addUser(_id,firstname,lastname,username))
     ,fetchUser:()=>{dispatch(fetchUser())}
 });
-
+const authAxios  =axios.create({
+    baseURL:"http://localhost:3001/",
+    headers:{
+        Authorization:`Bearer ${localStorage.getItem('token')}`
+    }
+});
 class Home extends Component
 {
     
@@ -44,19 +49,52 @@ class Home extends Component
         this.state={
             HideForm:false,
             dropDown:"Select Type",
-            files:[]
+            files:[],
+            file:null,
+            attach:[]
         }
     }
     handelDropDown = (e) => {
         this.setState({ dropDown: e })
     }
-    handleAddProjectForm() {
+    handleAddProjectForm = () => {
             this.setState({ HideForm: !this.state.HideForm })
+    }
+    handleImage = (e) =>{
+        this.setState({file:e.target.files});
+    }
+    handleAttach = (e) =>{
+       // console.warn(e.target.files);
+        this.setState({attach:e.target.files});
+    }
+    handleSubmit = async (e) =>{
+        e.preventDefault();
+        console.log(this.state.attach);
+        const body = new FormData();
+        body.append('Type',this.state.dropDown);
+        body.append('title',e.target.title.value);
+        body.append('Text',e.target.Text.value);
+        body.append('TimeTaken',e.target.TimeTaken.value);
+        body.append('image',this.state.file[0]);
+        const response = await authAxios.post('project',body);
+        console.log(response);
+        this.handleAddProjectForm();
     }
     componentWillMount = async () =>
     {
             this.props.fetchProjects();
             this.props.fetchUser();
+    }
+    componentDidMount = async () =>
+    {
+            this.props.fetchProjects();
+            this.props.fetchUser();
+    }
+    componentDidUpdate = async () =>
+    {
+        setTimeout( ()=>{
+            this.props.fetchProjects();
+        },10000);
     }
     render()
     {
@@ -96,29 +134,32 @@ class Home extends Component
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <form>
+                           <form enctype="multipart/form-data" onSubmit={this.handleSubmit}>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-10">
-                                <Form.Control type="text" placeholder="Project Title" />
+                            <div class="col-12">
+                                <Form.Control type="text" id="title" placeholder="Project Title" required/>
                             </div>
-                            <div class="col-1">
-                                <input
+                            <div class="col-12">
+                                <Form.Control
                                     type="file"
-                                    id="inputGroupFile01"
                                     aria-describedby="inputGroupFileAddon01"
-                                    hidden/>
-                                    <label className="custom-file-label btn" style={{border:"1px solid black",color:"white"}} htmlFor="inputGroupFile01">
-                                    <i class="fa fa-image" aria-hidden="true"></i>
-                                </label>
+                                    id="img"
+                                    className="hidden"
+                                    onChange={this.handleImage}
+                                    hidden
+                                />  
+                                <div style={{marginTop:"3px",border:"1px solid #6C757D",marginBotton:"3px",backgroundColor:"#FFFF",borderRadius:"5px"}}>
+                                <label for="img"><i style={{textDecoration:"none",fontSize:"23px",color:"black"}} className="fas fa-image"></i><span style={{color:"black",fontSize:"20px"}}> Choose Thumnail </span></label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
                             <div class="col-7">
-                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                <Form.Control type="email" placeholder="Total Time Taken" />
+                                <label class="sr-only" for="exampleInputEmail3">Total Time Taken</label>
+                                <Form.Control type="text" id="TimeTaken" placeholder="Total Time Taken" required />
                             </div>
                             <div class="col-2">
-                            <DropdownButton id="dropdown-basic-button" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
+                            <DropdownButton required id="Type" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
                             <Dropdown.Item eventKey="Web">Development Project</Dropdown.Item>
                             <Dropdown.Item eventKey="Data">Data-Science Project</Dropdown.Item>
                             <Dropdown.Item eventKey="Ideate">Ideation and Theories</Dropdown.Item>
@@ -127,21 +168,28 @@ class Home extends Component
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-8">
+                            <div class="col-12">
                                 <input
                                     type="file"
-                                    id="attachImages"
                                     aria-describedby="attachImagesAddon01"
-                                    multiple/>
+                                    id="imgF"
+                                    style={{margin:"10px"}}
+                                    onChange={this.handleAttach}
+                                multiple
+                                hidden/>
+                                <div style={{marginTop:"3px",border:"1px solid #6C757D",marginBotton:"3px",backgroundColor:"#FFFF",borderRadius:"5px"}}>
+                                <label for="imgF"><i style={{textDecoration:"none",fontSize:"23px",color:"black"}} className="fa fa-paperclip"></i><span style={{color:"black",fontSize:"20px"}}> Attachments </span></label>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
                             <div class="col-12">
                                     <textarea
                                     className="form-control"
-                                    id="exampleFormControlTextarea1"
                                     rows="5"
+                                    id="Text"
                                     placeholder="Write something..."
+                                    required
                                     />
                             </div>
                         </div>
@@ -158,18 +206,15 @@ class Home extends Component
     {/*--------------------------------------------------------------*/}
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
-            { !(localStorage.getItem('token')) && <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
+            { (localStorage.getItem('token')) && <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
             { user._id && <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>}
             </div> }
-            <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
-            <Button variant="dark" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={this.componentWillMount}>Refresh the Page</Button>
-            </div>
     </div>
-    <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    { (files.length!=0) ? <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Latest Featured Posts </h1>
         </div>
-    </div>
+    </div>:null}
     
     <Carousel responsive={responsive}>
         {
@@ -177,48 +222,48 @@ class Home extends Component
             {
                 if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
-                    <Post Access="public" CardData={data}/>
+                    <Post _id={data._id} Access="public" CardData={data}/>
                     </div>
                     );
                 }
                 else{
                     return(<div className="offset-1">
-                    <Post Access="private" CardData={data}/>
+                    <Post _id={data._id} Access="private" CardData={data}/>
                     </div>
                     );
                 }
             })   
         }
     </Carousel>
-    <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    {(files.length!=0) ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Web-Development Projects</h1>
         </div>
-    </div>
+    </div>:null}
     <Carousel responsive={responsive}>
         {
             files.map((data,idx)=>
             {
                 if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
-                    <Post Access="public" CardData={data}/>
+                    <Post _id={data._id} Access="public" CardData={data}/>
                     </div>
                     );
                 }
                 else{
                     return(<div className="offset-1">
-                    <Post Access="private" CardData={data}/>
+                    <Post _id={data._id} Access="private" CardData={data}/>
                     </div>
                     );
                 }
             })   
         }
     </Carousel>
-    <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    { (files.length!=0) ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Data Science Projects</h1>
         </div>
-    </div>
+    </div>:null }
     <Carousel responsive={responsive}>
         {
             files.map((data,idx)=>
@@ -238,11 +283,11 @@ class Home extends Component
             })   
         }
     </Carousel>
-    <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    { (files.length!=0) ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Ideation Block</h1>
         </div>
-    </div>
+    </div>:null}
     <Carousel responsive={responsive}>
         {
             files.map((data,idx)=>
@@ -262,6 +307,7 @@ class Home extends Component
             })   
         }
     </Carousel>
+    { (files.length==0) ?<p>Empty...</p>:null}
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>

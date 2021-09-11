@@ -17,6 +17,7 @@ import { DropdownButton,Dropdown } from "react-bootstrap";
 import { responsive } from "../../components/jsx/CardSlider";
 import Carousel from "react-multi-carousel";
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 import NavBar from '../../components/jsx/NavBar';
 import { addUser,fetchUser } from '../../redux/ActionCreators';
@@ -27,7 +28,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => 
+const mapDispatchToProps = (dispatch) => 
 ({
     addProject: (Pid,Title, Image, Text , Type , Duration) => dispatch(addProject(Pid,Title, Image, Text , Type , Duration))
     ,fetchProjects: () => { dispatch(fetchProjects())},
@@ -37,36 +38,66 @@ const mapDispatchToProps = dispatch =>
 
 class Home extends Component
 {
+    
     constructor(props)
     {
         super(props);
         this.state={
             HideForm:false,
-            dropDown:"Select Type"
+            dropDown:"Select Type",
+            files:[]
         }
     }
-    handelDropDown = (e)=> {
+    handelDropDown = (e) => {
         this.setState({ dropDown: e })
     }
     handleAddProjectForm() {
             this.setState({ HideForm: !this.state.HideForm })
     }
-    async componentDidMount() 
+    handleSubmit = (e) =>{
+        e.preventDefault();
+        const data = {
+            Type:this.Type,
+            title:this.title,
+            Text:this.Text,
+            TimeTaken:this.TimeTaken,
+            imageFile:this.imageFile,
+            files:this.files
+        }
+        const config = {
+            headers:{
+                Authorization: 'Bearer ' + localStorage.getItem('token')
+            }
+        }
+        axios.post('/project',config)
+        .then((res)=>{
+            console.log(res.data);
+        });
+        this.props.fetchProjects();
+    }
+    componentWillMount = async () =>
     {
             this.props.fetchProjects();
             this.props.fetchUser();
     }
+    componentDidUpdate = async () =>
+    {
+        setTimeout( ()=>{
+            this.props.fetchProjects();
+            this.props.fetchUser();
+            },10000);
+    }
     render()
     {
-        const {files} = this.props.projects.projects;
+        var files = this.props.projects.projects
         console.log(files);
         const user = {
-            _id:this.props.user.user.data._id,
-            username:this.props.user.user.data.username
-        };
+        _id:this.props.user.user.data._id,
+        username:this.props.user.user.data.username
+    };
     return (<>
     <div className="Main-style">
-    { user._id=="" ? <NavBar status="login"/>:  <NavBar status="logout"/>}
+    { !(localStorage.getItem('token')) ? <NavBar reload = {this.componentWillMount} status="login"/>:  <NavBar reload = {this.componentWillMount} status="logout"/>}
     <div className="Main-Outer">
     <div className="container-fluid Main-Inner" style={{padding:"250px 0px 250px 0px"}}>
         <div className="container" >
@@ -94,16 +125,17 @@ class Home extends Component
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
-                           <form>
+                           <form onSubmit={this.handleSubmit}>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
                             <div class="col-10">
-                                <Form.Control type="text" placeholder="Project Title" />
+                                <Form.Control type="text" name="title" placeholder="Project Title" />
                             </div>
                             <div class="col-1">
                                 <input
                                     type="file"
                                     id="inputGroupFile01"
                                     aria-describedby="inputGroupFileAddon01"
+                                    name="imageFile"
                                     hidden/>
                                     <label className="custom-file-label btn" style={{border:"1px solid black",color:"white"}} htmlFor="inputGroupFile01">
                                     <i class="fa fa-image" aria-hidden="true"></i>
@@ -112,11 +144,11 @@ class Home extends Component
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
                             <div class="col-7">
-                                <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                                <Form.Control type="email" placeholder="Total Time Taken" />
+                                <label class="sr-only" for="exampleInputEmail3">Total Time Taken</label>
+                                <Form.Control type="text" name="TimeTaken" placeholder="Total Time Taken" />
                             </div>
                             <div class="col-2">
-                            <DropdownButton id="dropdown-basic-button" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
+                            <DropdownButton id="dropdown-basic-button" name="Type" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
                             <Dropdown.Item eventKey="Web">Development Project</Dropdown.Item>
                             <Dropdown.Item eventKey="Data">Data-Science Project</Dropdown.Item>
                             <Dropdown.Item eventKey="Ideate">Ideation and Theories</Dropdown.Item>
@@ -130,6 +162,7 @@ class Home extends Component
                                     type="file"
                                     id="attachImages"
                                     aria-describedby="attachImagesAddon01"
+                                    name="files"
                                     multiple/>
                             </div>
                         </div>
@@ -139,6 +172,7 @@ class Home extends Component
                                     className="form-control"
                                     id="exampleFormControlTextarea1"
                                     rows="5"
+                                    name="Text"
                                     placeholder="Write something..."
                                     />
                             </div>
@@ -156,9 +190,12 @@ class Home extends Component
     {/*--------------------------------------------------------------*/}
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
-            <div className="col-12" style={{paddingTop:"30px",paddingBottom:"30px"}}>
-            { user._id && <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>}
+            <div className="col-6 align-self-center" style={{fontSize:"50px",paddingTop:"30px",paddingBottom:"30px"}}>
+            <Link to="./" onClick={this.componentWillMount}><i style={{fontSize:"30px"}} class="fa fa-refresh" aria-hidden="true"></i></Link>
             </div>
+            { (localStorage.getItem('token')) && <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
+            { user._id && <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>}
+            </div> }
     </div>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
@@ -170,7 +207,7 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if(user._id){
+                if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
@@ -194,7 +231,7 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if(user._id){
+                if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
@@ -206,8 +243,7 @@ class Home extends Component
                     </div>
                     );
                 }
-            })
-            
+            })   
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -219,7 +255,7 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if(user._id){
+                if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
@@ -231,8 +267,7 @@ class Home extends Component
                     </div>
                     );
                 }
-            })
-            
+            })   
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
@@ -244,26 +279,25 @@ class Home extends Component
         {
             files.map((data,idx)=>
             {
-                if(user._id){
-                    return(<div className="offset-1">
-                    <Post Access="private" CardData={data}/>
-                    </div>
-                    );
-                }
-                else{
+                if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
                     <Post Access="public" CardData={data}/>
                     </div>
                     );
                 }
-            })
-            
+                else{
+                    return(<div className="offset-1">
+                    <Post Access="private" CardData={data}/>
+                    </div>
+                    );
+                }
+            })   
         }
     </Carousel>
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>
-    </div>}
+    </div>
     </div>
     </>);
     }
