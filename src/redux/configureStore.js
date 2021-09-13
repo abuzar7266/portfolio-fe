@@ -11,7 +11,7 @@ export const ConfigureStore = () => {
             projects:Projects,
             user:User
         }),
-        applyMiddleware(thunk, logger)
+        applyMiddleware(thunk)
     );
 
     return store;

@@ -9,8 +9,6 @@ import { Col,Row } from 'react-bootstrap';
 import '../css/styles.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router';
-import { Button } from 'react-bootstrap';
 class NavBar extends Component
 {
   constructor(props)
@@ -20,7 +18,8 @@ class NavBar extends Component
             showHide : false,
             username:"",
             password:"",
-            activeClass:"Home"
+            activeClass:"Home",
+            loginStatus:0
         }
     }
   handleActiveClass(u)
@@ -29,6 +28,7 @@ class NavBar extends Component
   }
   handleModalShowHide(u,p) 
   {
+        this.setState({loginStatus:0});
         this.setState({ showHide: !this.state.showHide,username:u,password:p })
   }
   handleSubmit = async (e) => {
@@ -39,12 +39,22 @@ class NavBar extends Component
       }
       axios.post( 'users/login',data)
       .then(res=>{
+        if(res.status==200){
           localStorage.setItem('token',res.data.token);
+          this.setState({loginStatus:res.status});
+          this.setState({ showHide: !this.state.showHide});
+          window.location.reload();
+        }
       })
-      this.setState({ showHide: !this.state.showHide});
+      .catch((err)=>{
+          if(err){
+            this.setState({loginStatus:-1});
+          }
+      })
   }
   handleLogout = async () =>{
       localStorage.removeItem('token');
+      window.location.reload();
   }
   render()
   {
@@ -67,6 +77,9 @@ class NavBar extends Component
                        </Card.Header>
                        <Card.Body style={{backgroundColor:"#1C2331",color:"white"}}>
                            <Card.Text>
+                           { (this.state.loginStatus===-1)?<div className="alert alert-warning" role="alert">
+                                invalid username or password
+                                </div>:null }
                            <form onSubmit={this.handleSubmit} method="post" action="./">
                                 <div class="form-row">
                                     <div class="form-group col-sm-10">

@@ -1,21 +1,12 @@
 
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { addProject } from "../../redux/ActionCreators";
-import { fetchProjects } from "../../redux/ActionCreators";
 import Carousel from 'react-multi-carousel';
 import { Link } from 'react-router-dom';
 import '../css/styles.css';
 import { responsive2 } from '../../components/jsx/CardSlider';
 import { Container,Col,Row,Image } from 'react-bootstrap';
 import axios from 'axios';
-const authAxios  =axios.create({
-    baseURL:"http://localhost:3001/",
-    headers:{
-        Authorization:`Bearer ${localStorage.getItem('token')}`
-    }
-});
+var url = "http://server-express-portfolio.herokuapp.com/";
 class PostDetail extends Component
 {
     constructor(props){
@@ -25,7 +16,8 @@ class PostDetail extends Component
                 title:"",
                 _id:"",
                 imageFile:"",
-                Text:""
+                Text:"",
+                files:[]
             }
         }
     }
@@ -79,15 +71,24 @@ class PostDetail extends Component
                     md={10}
                     lg={6}
                 >
-                
+                <Carousel responsive={responsive2}>
+                {
+                    this.state.Data.files.map(val=>{
+                        return (<div>
+                            <Image style={{height:"300px",width:"400px"}} src={`${url}${val}`} fluid/>
+                            </div>);
+                    })
+                }
+                </Carousel>
                 </Col>
             </Row>
             <Row>
                 <br />
             </Row>
-            <Row>
-                <Col>
-                    {this.state.Data.Text}
+            <Row style={{overflowWrap: "break-word"}}>
+                <Col >
+                    <p style={{
+                        textAlign:"left",marginLeft:"30px",marginRight:"30px",fontSize:"16px"}}>{this.state.Data.Text}</p>
                 </Col>
             </Row>
         </Container>

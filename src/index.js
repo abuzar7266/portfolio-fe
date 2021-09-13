@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './pages/css/styles.css';
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://localhost:3001/';
+axios.defaults.baseURL = 'http://server-express-portfolio.herokuapp.com/';
 //axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token');
 ReactDOM.render( <>
     <BrowserRouter >

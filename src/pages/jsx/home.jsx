@@ -19,11 +19,9 @@ import Carousel from "react-multi-carousel";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import NavBar from '../../components/jsx/NavBar';
-import { addUser,fetchUser } from '../../redux/ActionCreators';
 const mapStateToProps = state => {
     return {
-      projects:state.projects,
-      user:state.user
+      projects:state.projects
     }
 }
 
@@ -31,18 +29,15 @@ const mapDispatchToProps = (dispatch) =>
 ({
     addProject: (Pid,Title, Image, Text , Type , Duration) => dispatch(addProject(Pid,Title, Image, Text , Type , Duration))
     ,fetchProjects: () => { dispatch(fetchProjects())},
-    addUser: (_id,firstname,lastname,username)=>dispatch(addUser(_id,firstname,lastname,username))
-    ,fetchUser:()=>{dispatch(fetchUser())}
 });
 const authAxios  =axios.create({
-    baseURL:"http://localhost:3001/",
+    baseURL:"http://server-express-portfolio.herokuapp.com/",
     headers:{
         Authorization:`Bearer ${localStorage.getItem('token')}`
     }
 });
 class Home extends Component
 {
-    
     constructor(props)
     {
         super(props);
@@ -51,44 +46,63 @@ class Home extends Component
             dropDown:"Select Type",
             files:[],
             file:null,
-            attach:[]
+            attach:[],
+            Time:""
         }
     }
     handelDropDown = (e) => {
-        this.setState({ dropDown: e })
+        this.setState({ dropDown: e });
+        if(this.state.dropDown=="Post" || this.state.dropDown=="Ideate")
+        {
+            this.setState({Time:" "});
+        }
     }
-    handleAddProjectForm = () => {
-            this.setState({ HideForm: !this.state.HideForm })
-    }
-    handleImage = (e) =>{
-        this.setState({file:e.target.files});
-    }
-    handleAttach = (e) =>{
-       // console.warn(e.target.files);
-        this.setState({attach:e.target.files});
-    }
+    handleAddProjectForm = () => {this.setState({ HideForm: !this.state.HideForm });}
+    handleImage = (e) =>{ this.setState({file:e.target.files}); }
+    handleAttach = (e) =>{ this.setState({attach:e.target.files}); }
     handleSubmit = async (e) =>{
         e.preventDefault();
-        console.log(this.state.attach);
         const body = new FormData();
         body.append('Type',this.state.dropDown);
         body.append('title',e.target.title.value);
         body.append('Text',e.target.Text.value);
-        body.append('TimeTaken',e.target.TimeTaken.value);
+        body.append('TimeTaken',this.state.Time);
         body.append('image',this.state.file[0]);
+        var newData = new Array();
+        for(let i=0;i<this.state.attach.length;i++)
+        {
+            newData[i] = this.state.attach[i];
+        }
+        console.log(newData);
+        for(let i=0;i<this.state.attach.length;i++)
+        {
+            body.append(`attachments[${i}]`,newData[i])
+        }
         const response = await authAxios.post('project',body);
-        console.log(response);
+        if(response.status==200)
+        {
+            alert("Post has been successfully uploaded");
+        }
+        else if(response.status==401)
+        {
+            alert("You are not authorized to upload any post");
+        }
+        else
+        {
+            alert("Error occurred while uploaded post");
+        }
         this.handleAddProjectForm();
+    }
+    handleTime = (e) =>{
+        this.setState({Time:e.target.TimeTaken});
     }
     componentWillMount = async () =>
     {
             this.props.fetchProjects();
-            this.props.fetchUser();
     }
     componentDidMount = async () =>
     {
             this.props.fetchProjects();
-            this.props.fetchUser();
     }
     componentDidUpdate = async () =>
     {
@@ -98,12 +112,8 @@ class Home extends Component
     }
     render()
     {
-        var files = this.props.projects.projects
-        console.log(files);
-        const user = {
-        _id:this.props.user.user.data._id,
-        username:this.props.user.user.data.username
-    };
+        var files = this.props.projects.projects;
+
     return (<>
     <div className="Main-style">
     { !(localStorage.getItem('token')) ? <NavBar reload = {this.componentWillMount} status="login"/>:  <NavBar reload = {this.componentWillMount} status="logout"/>}
@@ -154,10 +164,10 @@ class Home extends Component
                             </div>
                         </div>
                         <div class="form-group row" style={{marginBottom:"10px"}}>
-                            <div class="col-7">
+                            { (this.state.dropDown!=="Post" && this.state.dropDown!=="Ideate") ? <div class="col-7">
                                 <label class="sr-only" for="exampleInputEmail3">Total Time Taken</label>
-                                <Form.Control type="text" id="TimeTaken" placeholder="Total Time Taken" required />
-                            </div>
+                                <Form.Control type="text" id="TimeTaken" value={this.state.Time} onChange={this.handleTime} placeholder="Total Time Taken" required />
+                            </div> : null }
                             <div class="col-2">
                             <DropdownButton required id="Type" variant="secondary" title={this.state.dropDown} onSelect={this.handelDropDown}>
                             <Dropdown.Item eventKey="Web">Development Project</Dropdown.Item>
@@ -207,10 +217,10 @@ class Home extends Component
     <div className="container-fluid" style={{backgroundColor:"transparent"}} style={{textAlign:"center",alignItems:"center"}}>
     <div className="row" style={{backgroundImage:"linear-gradient(to right,#0F2027,#203A43,#2C5364)"}}>
             { (localStorage.getItem('token')) && <div className="col-6" style={{paddingTop:"30px",paddingBottom:"30px"}}>
-            { user._id && <Button variant="outline-primary" style={{borderRadius:"20%",padding:"30px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>}
+                                <Button variant="outline-primary" style={{borderRadius:"90px",padding:"20px",fontSize:"20px",color:"white",boxShadow:"5px 5px 20px black"}} onClick={() => this.handleAddProjectForm()}> <i style={{opacity:"90%"}} class="fas fa-file-upload"></i> Upload Post</Button>
             </div> }
     </div>
-    { (files.length!=0) ? <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    { (files.filter(file => file.Type==="Post")).length!=0 ? <div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Latest Featured Posts </h1>
         </div>
@@ -218,96 +228,95 @@ class Home extends Component
     
     <Carousel responsive={responsive}>
         {
-            files.map((data,idx)=>
+            (files.filter(file => file.Type==="Post")).map((data,idx)=>
             {
                 if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
-                    <Post _id={data._id} Access="public" CardData={data}/>
+                    <Post key={data._id} Access="public" CardData={data}/>
                     </div>
                     );
                 }
                 else{
                     return(<div className="offset-1">
-                    <Post _id={data._id} Access="private" CardData={data}/>
+                    <Post key={data._id} Access="private" CardData={data}/>
                     </div>
                     );
                 }
             })   
         }
     </Carousel>
-    {(files.length!=0) ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    {(files.filter(file => file.Type==="Web")).length!=0 ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Web-Development Projects</h1>
         </div>
     </div>:null}
     <Carousel responsive={responsive}>
         {
-            files.map((data,idx)=>
+            (files.filter(file => file.Type==="Web")).map((data,idx)=>
             {
                 if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
-                    <Post _id={data._id} Access="public" CardData={data}/>
+                    <Post key={data._id} Access="public" CardData={data}/>
                     </div>
                     );
                 }
                 else{
                     return(<div className="offset-1">
-                    <Post _id={data._id} Access="private" CardData={data}/>
+                    <Post key={data._id} Access="private" CardData={data}/>
                     </div>
                     );
                 }
             })   
         }
     </Carousel>
-    { (files.length!=0) ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    { (files.filter(file => file.Type==="Data")).length!=0 ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Data Science Projects</h1>
         </div>
     </div>:null }
     <Carousel responsive={responsive}>
         {
-            files.map((data,idx)=>
+            (files.filter(file => file.Type==="Data")).map((data,idx)=>
             {
                 if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
-                    <Post Access="public" CardData={data}/>
+                    <Post key={data._id} Access="public" CardData={data}/>
                     </div>
                     );
                 }
                 else{
                     return(<div className="offset-1">
-                    <Post Access="private" CardData={data}/>
+                    <Post key={data._id} Access="private" CardData={data}/>
                     </div>
                     );
                 }
             })   
         }
     </Carousel>
-    { (files.length!=0) ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
+    { (files.filter(file => file.Type==="Ideate")).length!=0 ?<div className="row" style={{backgroundColor:"black",color:"white",textAlign:"center"}}>
         <div className="col-auto align-self-center" style={{color:"white",textAlign:"center"}}>
             <h1 style={{marginBottom:"30px",color:"white",textAlign:"center"}}> <i class="fa fa-certificate" aria-hidden="true"></i> Ideation Block</h1>
         </div>
     </div>:null}
     <Carousel responsive={responsive}>
         {
-            files.map((data,idx)=>
+            (files.filter(file => file.Type==="Ideate")).map((data,idx)=>
             {
                 if((localStorage.getItem('token'))){
                     return(<div className="offset-1">
-                    <Post Access="public" CardData={data}/>
+                    <Post key={data._id} Access="public" CardData={data}/>
                     </div>
                     );
                 }
                 else{
                     return(<div className="offset-1">
-                    <Post Access="private" CardData={data}/>
+                    <Post key={data._id} Access="private" CardData={data}/>
                     </div>
                     );
                 }
             })   
         }
     </Carousel>
-    { (files.length==0) ?<p>Empty...</p>:null}
     <div className="row" style={{backgroundColor:"grey"}}>
             <br />
     </div>
