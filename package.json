@@ -2,7 +2,7 @@
     "name": "my-app",
     "version": "0.1.0",
     "private": true,
-    "proxy": "https://server-express-portfolio.herokuapp.com",
+    "proxy": "http://server-express-portfolio.herokuapp.com",
     "dependencies": {
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^11.2.7",
