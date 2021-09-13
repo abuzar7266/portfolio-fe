@@ -37,7 +37,7 @@ class NavBar extends Component
           username: this.username,
           password:this.password
       }
-      axios.post( 'users/login',data)
+      const response = await axios.post( 'users/login',data)
       .then(res=>{
         if(res.status==200){
           localStorage.setItem('token',res.data.token);
