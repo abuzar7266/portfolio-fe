@@ -6,7 +6,7 @@ import '../css/styles.css';
 import { responsive2 } from '../../components/jsx/CardSlider';
 import { Container,Col,Row,Image } from 'react-bootstrap';
 import axios from 'axios';
-var url = "http://server-express-portfolio.herokuapp.com/";
+var url = "https://server-express-portfolio.herokuapp.com/";
 class PostDetail extends Component
 {
     constructor(props){
