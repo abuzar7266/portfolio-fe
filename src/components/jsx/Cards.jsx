@@ -111,7 +111,7 @@ class Cards extends Component{
     }
     render(){
         var CardData = this.state.Data;
-        const imgUrl = ("http://localhost:3001/images/" + CardData.imageFile);
+        const imgUrl = ("http://server-express-portfolio.herokuapp.com/images/" + CardData.imageFile);
       return (<>
       <div>
       <div className="container-fluid" style={{alignContent:"center"}}>
